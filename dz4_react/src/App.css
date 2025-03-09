@@ -1,0 +1,32 @@
+body {
+  margin-top: 5%;
+  margin-left: 0%;
+  background-color: rgb(229, 240, 240);
+}
+
+.App {
+  text-align: center;
+}
+
+.book_card {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  width: 200px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.Authors_text {
+  font-size: smaller;
+  color: rgb(87, 87, 87);
+}
+
+.button {
+  background-color: rgb(72, 140, 249);
+  border-radius: 5px;
+}
