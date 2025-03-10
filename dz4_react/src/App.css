@@ -18,7 +18,7 @@ body {
 
 .card {
   width: 200px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 .Authors_text {
@@ -29,4 +29,14 @@ body {
 .button {
   background-color: rgb(72, 140, 249);
   border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) and (max-height: 1275px) {
+  .book_card {
+    display: flex;
+    flex-direction: column;
+  }
+  .card {
+    width: auto;
+  }
 }
