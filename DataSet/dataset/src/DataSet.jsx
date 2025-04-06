@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const DataSet = ({
   headers = [],
@@ -8,36 +8,40 @@ const DataSet = ({
   selectedRows = [],
   onRowSelect = () => {},
 }) => {
-  const defaultHeaders = headers.length > 0 ? headers : Object.keys(data[0] || {}).map((key) => ({ label: key }));
-
-  const [selected, setSelected] = useState(selectedRows);
+  const defaultHeaders = headers.length > 0
+    ? headers
+    : data.length > 0
+    ? Object.keys(data[0]).map((key) => ({ label: key }))
+    : [];
 
   const handleRowClick = (index, event) => {
     const isCtrlPressed = event.ctrlKey;
 
     if (isCtrlPressed) {
-      const updatedSelected = selected.includes(index)
-        ? selected.filter((selectedIndex) => selectedIndex !== index)
-        : [...selected, index];
-      setSelected(updatedSelected);
+      const updatedSelected = selectedRows.includes(index)
+        ? selectedRows.filter((selectedIndex) => selectedIndex !== index)
+        : [...selectedRows, index];
+      onRowSelect(updatedSelected);
     } else {
-      if (selected.length === 1 && selected[0] === index) {
-        setSelected([]);
+      if (selectedRows.length === 1 && selectedRows[0] === index) {
+        onRowSelect([]);
       } else {
-        setSelected([index]);
+        onRowSelect([index]);
       }
     }
-
-    onRowSelect(index);
   };
 
   return (
     <div>
       <table className="data-table">
         <thead>
+          <tr>
             {defaultHeaders.map((header, index) => (
-              <th className='headTable' key={index}>{headerRenderer(header)}</th>
+              <th className="headTable" key={index}>
+                {headerRenderer(header)}
+              </th>
             ))}
+          </tr>
         </thead>
 
         <tbody>
@@ -45,10 +49,8 @@ const DataSet = ({
             <tr
               key={index}
               onClick={(event) => handleRowClick(index, event)}
-              className={selected.includes(index) ? 'selected' : ''}
-              style={{borderLeft: selected.includes(index) ? '8px solid rgb(7, 59, 42)' : 'none'}} 
+              className={selectedRows.includes(index) ? 'selected' : ''}
             >
-
               {rowRenderer(item)}
             </tr>
           ))}
