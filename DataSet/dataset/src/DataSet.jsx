@@ -1,34 +1,15 @@
+// DataSet.jsx
 import React from 'react';
 
 const DataSet = ({
   headers = [],
   data = [],
   rowRenderer = (item) => Object.values(item).map((value) => <td>{value}</td>),
-  headerRenderer = (header) => <th>{header.label}</th>,
   selectedRows = [],
   onRowSelect = () => {},
 }) => {
-  const defaultHeaders = headers.length > 0
-    ? headers
-    : data.length > 0
-    ? Object.keys(data[0]).map((key) => ({ label: key }))
-    : [];
-
-  const handleRowClick = (index, event) => {
-    const isCtrlPressed = event.ctrlKey;
-
-    if (isCtrlPressed) {
-      const updatedSelected = selectedRows.includes(index)
-        ? selectedRows.filter((selectedIndex) => selectedIndex !== index)
-        : [...selectedRows, index];
-      onRowSelect(updatedSelected);
-    } else {
-      if (selectedRows.length === 1 && selectedRows[0] === index) {
-        onRowSelect([]);
-      } else {
-        onRowSelect([index]);
-      }
-    }
+  const handleRowClick = (item, event) => {
+    onRowSelect(item.id, event); // Передаем ID элемента и событие
   };
 
   return (
@@ -36,9 +17,9 @@ const DataSet = ({
       <table className="data-table">
         <thead>
           <tr>
-            {defaultHeaders.map((header, index) => (
+            {headers.map((header, index) => (
               <th className="headTable" key={index}>
-                {headerRenderer(header)}
+                {header.label}
               </th>
             ))}
           </tr>
@@ -47,9 +28,9 @@ const DataSet = ({
         <tbody>
           {data.map((item, index) => (
             <tr
-              key={index}
-              onClick={(event) => handleRowClick(index, event)}
-              className={selectedRows.includes(index) ? 'selected' : ''}
+              key={item.id}
+              onClick={(event) => handleRowClick(item, event)}
+              className={selectedRows.includes(item.id) ? 'selected' : ''}
             >
               {rowRenderer(item)}
             </tr>
