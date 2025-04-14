@@ -205,7 +205,7 @@ const TablePage = ({ endpoint }) => {
       if (typeof value === 'object' && value !== null) {
         return <td key={field.name}>{JSON.stringify(value)}</td>;
       }
-      return <td key={field.name}>{value || '—'}</td>;
+      return <td key={field.name}>{value || '✘'}</td>;
     });
   };
 
