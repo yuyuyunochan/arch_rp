@@ -1,3 +1,8 @@
+sudo apt-get update
+sudo apt-get install -y dotnet-sdk-7.0
+dotnet run
+
+
 curl -X POST http://localhost:5000/comments -H "Content-Type: application/json" -d '{
     "name": "New Comment Title",
     "email": "newuser@example.com",
