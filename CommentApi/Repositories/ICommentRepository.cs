@@ -4,6 +4,7 @@ namespace CommentApi.Repositories;
 
 public interface ICommentRepository
 {
+    Task SeedDatabaseFromJsonPlaceholder();
     IEnumerable<Comment> GetAll();
     Comment? GetById(int id);
     Comment Add(Comment comment);

@@ -8,30 +8,10 @@ public class CommentRepository : ICommentRepository
     private readonly Dictionary<int, Comment> _comments = new();
     private int _nextId = 1;
 
-    public CommentRepository(HttpClient httpClient)
+    public Task SeedDatabaseFromJsonPlaceholder()
     {
-        InitializeCommentsAsync(httpClient).GetAwaiter().GetResult();
-    }
-
-    private async Task InitializeCommentsAsync(HttpClient httpClient)
-    {
-        try
-        {
-            // Загрузка данных из jsonplaceholder.typicode.com
-            var externalComments = await httpClient.GetFromJsonAsync<Comment[]>("https://jsonplaceholder.typicode.com/comments");
-            if (externalComments != null)
-            {
-                foreach (var comment in externalComments)
-                {
-                    comment.Id = _nextId++;
-                    _comments[comment.Id] = comment;
-                }
-            }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Ошибка при загрузке данных: {ex.Message}");
-        }
+        // Реализация может быть пустой, если этот метод не нужен для этого класса
+        throw new System.NotImplementedException("This method is not implemented for this repository.");
     }
 
     public IEnumerable<Comment> GetAll() => _comments.Values;
