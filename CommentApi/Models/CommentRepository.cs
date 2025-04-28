@@ -10,8 +10,7 @@ public class CommentRepository : ICommentRepository
 
     public Task SeedDatabaseFromJsonPlaceholder()
     {
-        // Реализация может быть пустой, если этот метод не нужен для этого класса
-        throw new System.NotImplementedException("This method is not implemented for this repository.");
+        throw new System.NotImplementedException(" ");
     }
 
     public IEnumerable<Comment> GetAll() => _comments.Values;

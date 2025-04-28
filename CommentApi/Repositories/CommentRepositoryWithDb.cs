@@ -18,9 +18,8 @@ public class CommentRepositoryWithDb : ICommentRepository
 
 public async Task SeedDatabaseFromJsonPlaceholder()
 {
-    // Очистка таблицы
     _context.Comments.RemoveRange(_context.Comments);
-    await _context.SaveChangesAsync(); // Добавьте await
+    await _context.SaveChangesAsync();
 
     var comments = await _httpClient.GetFromJsonAsync<List<CommentDto>>("https://jsonplaceholder.typicode.com/comments");
 
@@ -37,18 +36,16 @@ public async Task SeedDatabaseFromJsonPlaceholder()
             Name = dto.Name,
             Email = dto.Email,
             Body = dto.Body
-            // Id не указывается, так как он автоинкрементируется
         };
 
         Add(comment);
     }
 }
 
-// DTO для данных из JSONPlaceholder
 public class CommentDto
 {
     public int PostId { get; set; }
-    public int Id { get; set; } // Это поле игнорируется
+    public int Id { get; set; }
     public string Name { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
     public string Body { get; set; } = string.Empty;

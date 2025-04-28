@@ -3,7 +3,9 @@ sudo apt-get install -y dotnet-sdk-9.0
 dotnet run
 
 
-curl -X POST http://localhost:5000/comments -H "Content-Type: application/json" -d '{
+curl -X POST http://localhost:5000/comments
+-H "Content-Type: application/json"
+-d '{
     "name": "New Comment Title",
     "email": "newuser@example.com",
     "body": "This is the body of the new comment."
@@ -14,7 +16,8 @@ curl -X PATCH http://localhost:5000/comments/1 \
 -H "Content-Type: application/json" \
 -d '{
     "name": "Updated Comment Title",
-    "email": "updateduser@example.com"
+    "email": "updateduser@example.com", 
+    "body": "updated comment body"
 }'
 
 
