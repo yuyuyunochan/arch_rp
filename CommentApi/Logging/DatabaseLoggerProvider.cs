@@ -1,4 +1,3 @@
-// Logging/DatabaseLoggerProvider.cs
 using CommentApi.Data;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;

@@ -1,4 +1,3 @@
-// Logging/DatabaseLogger.cs
 using CommentApi.Models;
 using CommentApi.Data;
 using Microsoft.EntityFrameworkCore;
@@ -41,8 +40,6 @@ public class DatabaseLogger : ILogger
         {
             return;
         }
-
-        // Создаём новый экземпляр DbContext через фабрику
         using (var dbContext = _dbContextFactory.CreateDbContext())
         {
             try
@@ -60,7 +57,6 @@ public class DatabaseLogger : ILogger
             }
             catch (Exception ex)
             {
-                // Логируем ошибку записи логов
                 Console.Error.WriteLine($"Error writing log to database: {ex.Message}");
             }
         }

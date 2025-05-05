@@ -48,7 +48,7 @@ builder.Services.AddSingleton<ILoggerProvider>(provider =>
     return new DatabaseLoggerProvider(
         (category, level) => 
             level >= LogLevel.Information && 
-            !category.StartsWith("Microsoft.EntityFrameworkCore"), // Игнорируем логи EF Core
+            !category.StartsWith("Microsoft.EntityFrameworkCore"),
         dbContextFactory
     );
 });
@@ -71,7 +71,6 @@ else
 
 app.UseRouting();
 app.UseCors("AllowAll");
-// Миграции базы данных
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<CommentDbContext>();

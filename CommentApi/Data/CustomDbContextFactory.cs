@@ -1,4 +1,3 @@
-// Data/CustomDbContextFactory.cs
 using Microsoft.EntityFrameworkCore;
 
 namespace CommentApi.Data;

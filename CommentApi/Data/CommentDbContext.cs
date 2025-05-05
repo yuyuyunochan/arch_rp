@@ -1,4 +1,3 @@
-// Data/CommentDbContext.cs
 using CommentApi.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,8 +22,6 @@ public class CommentDbContext : DbContext
             entity.HasKey(c => c.Id);
             entity.Property(c => c.Id).ValueGeneratedOnAdd();
         });
-
-        // Настройка для логов
         modelBuilder.Entity<Log>(entity =>
         {
             entity.HasKey(l => l.Id);
