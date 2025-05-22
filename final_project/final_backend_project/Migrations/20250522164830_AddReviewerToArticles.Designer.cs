@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using final_backend_project.Data;
@@ -11,9 +12,11 @@ using final_backend_project.Data;
 namespace final_backend_project.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250522164830_AddReviewerToArticles")]
+    partial class AddReviewerToArticles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -277,14 +280,15 @@ namespace final_backend_project.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("Content")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("ReviewerId")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Status")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -369,25 +373,18 @@ namespace final_backend_project.Migrations
             modelBuilder.Entity("final_backend_project.Models.Review", b =>
                 {
                     b.HasOne("final_backend_project.Models.Article", "Article")
-                        .WithMany("Reviews")
+                        .WithMany()
                         .HasForeignKey("ArticleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("final_backend_project.Models.ApplicationUser", "Reviewer")
                         .WithMany()
-                        .HasForeignKey("ReviewerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ReviewerId");
 
                     b.Navigation("Article");
 
                     b.Navigation("Reviewer");
-                });
-
-            modelBuilder.Entity("final_backend_project.Models.Article", b =>
-                {
-                    b.Navigation("Reviews");
                 });
 #pragma warning restore 612, 618
         }

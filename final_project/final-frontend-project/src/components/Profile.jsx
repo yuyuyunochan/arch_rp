@@ -1,52 +1,75 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import SubmitArticleForm from './SubmitArticleForm'; // Импортируем форму
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import SubmitArticleForm from "./SubmitArticleForm"; // Импортируем форму
+import MyArticles from "./MyArticles";
+import ReviewerDashboard from "./ReviewerDashboard";
 
 const Profile = () => {
-    const token = localStorage.getItem('token');
-    const [user, setUser] = useState(null);
+  const token = localStorage.getItem("token");
+  const [user, setUser] = useState(null);
+//   const userRole = localStorage.getItem("userRole");
 
-    useEffect(() => {
-        const fetchUserData = async () => {
-            try {
-                const response = await axios.get('http://localhost:5000/api/users/me', {
-                    headers: { Authorization: `Bearer ${token}` }
-                });
-                setUser(response.data);
-            } catch (error) {
-                console.error('Ошибка при загрузке данных пользователя:', error.response?.data || error.message);
-                alert('Не удалось загрузить данные пользователя.');
-            }
-        };
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/api/users/me", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setUser(response.data);
+      } catch (error) {
+        console.error(
+          "Ошибка при загрузке данных пользователя:",
+          error.response?.data || error.message
+        );
+        alert("Не удалось загрузить данные пользователя.");
+      }
+    };
 
-        if (!token) {
-            window.location.href = '/login';
-        } else {
-            fetchUserData();
-        }
-    }, [token]);
-
-    if (!user) {
-        return <p>Загрузка...</p>;
+    if (!token) {
+      window.location.href = "/login";
+    } else {
+      fetchUserData();
     }
+  }, [token]);
+  const handleLogout = () => {
+    // Удаляем токен из localStorage
+    localStorage.removeItem("token");
 
-    return (
-        <div className="profile-container">
-            <h1>Личный кабинет</h1>
-            <div className="profile-info">
-                <p><strong>Имя пользователя:</strong> {user.username}</p>
-                <p><strong>Email:</strong> {user.email}</p>
-                <p><strong>Роль:</strong> {user.role}</p>
-            </div>
+    // Перенаправляем на страницу входа
+    window.location.href = "/login";
+  };
 
-            {user.role === 'Author' && (
-                <div>
-                    <h2>Добавить статью</h2>
-                    <SubmitArticleForm /> {/* Вставляем форму здесь */}
-                </div>
-            )}
+  if (!user) {
+    return <p>Загрузка...</p>;
+  }
+
+  return (
+    <div className="profile-container">
+      <h1>Личный кабинет</h1>
+      <div className="profile-info">
+        <p>
+          <strong>Имя пользователя:</strong> {user.username}
+        </p>
+        <p>
+          <strong>Email:</strong> {user.email}
+        </p>
+        <p>
+          <strong>Роль:</strong> {user.role}
+        </p>
+      </div>
+
+      {user.role === "Author" && (
+        <div>
+          <h2>Добавить статью</h2>
+          <SubmitArticleForm /> {/* Вставляем форму здесь */}
         </div>
-    );
+      )}
+      {/* Список статей */}
+      {user.role === "Author" && <MyArticles />}
+      {user.role === "Reviewer" && <ReviewerDashboard />}
+      <button onClick={handleLogout}>Выйти</button>
+    </div>
+  );
 };
 
 export default Profile;

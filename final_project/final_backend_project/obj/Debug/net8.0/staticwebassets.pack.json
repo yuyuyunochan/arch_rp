@@ -9,6 +9,54 @@
       "PackagePath": "staticwebassets\\images\\pr02.docx"
     },
     {
+      "Id": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\8.pdf",
+      "PackagePath": "staticwebassets\\uploads\\8.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\pr01.pdf",
+      "PackagePath": "staticwebassets\\uploads\\pr01.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\pr02.docx",
+      "PackagePath": "staticwebassets\\uploads\\pr02.docx"
+    },
+    {
+      "Id": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\pr03.docx",
+      "PackagePath": "staticwebassets\\uploads\\pr03.docx"
+    },
+    {
+      "Id": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\pr06.pdf",
+      "PackagePath": "staticwebassets\\uploads\\pr06.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\Документ Microsoft Word.docx",
+      "PackagePath": "staticwebassets\\uploads\\Документ Microsoft Word.docx"
+    },
+    {
+      "Id": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\Методичка — копия.pdf",
+      "PackagePath": "staticwebassets\\uploads\\Методичка — копия.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\Отчет по курсовой Ларина В.И..docx",
+      "PackagePath": "staticwebassets\\uploads\\Отчет по курсовой Ларина В.И..docx"
+    },
+    {
+      "Id": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\Отчет по учебной практике Ларина В.И..docx",
+      "PackagePath": "staticwebassets\\uploads\\Отчет по учебной практике Ларина В.И..docx"
+    },
+    {
+      "Id": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\Отчет_Учебная_Практика.docx",
+      "PackagePath": "staticwebassets\\uploads\\Отчет_Учебная_Практика.docx"
+    },
+    {
+      "Id": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\Отчёт по курсовой Бурдуковский Илья ИП-813.docx",
+      "PackagePath": "staticwebassets\\uploads\\Отчёт по курсовой Бурдуковский Илья ИП-813.docx"
+    },
+    {
+      "Id": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\Титульный лист отчета по учебной практике 2025.docx",
+      "PackagePath": "staticwebassets\\uploads\\Титульный лист отчета по учебной практике 2025.docx"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.final_backend_project.props",
       "PackagePath": "build\\final_backend_project.props"
     },

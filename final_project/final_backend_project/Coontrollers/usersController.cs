@@ -29,23 +29,29 @@ namespace final_backend_project.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             var user = new ApplicationUser
             {
                 UserName = model.Username,
-                Email = model.Email
+                Email = model.Email,
+                Role = model.Role // Сохраняем роль
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);
 
-            if (!result.Succeeded)
+            if (result.Succeeded)
             {
-                return BadRequest(result.Errors);
+                // Добавляем пользователя в выбранную роль
+                await _userManager.AddToRoleAsync(user, model.Role);
+
+                return Ok(new { Message = "User registered successfully" });
             }
 
-            // Добавляем роль по умолчанию (например, "Author")
-            await _userManager.AddToRoleAsync(user, "Author");
-
-            return Ok(new { Message = "User registered successfully" });
+            return BadRequest(new { Errors = result.Errors });
         }
 
         // Вход пользователя
@@ -70,53 +76,53 @@ namespace final_backend_project.Controllers
         }
 
         [HttpGet("me")]
-public async Task<IActionResult> GetCurrentUser()
-{
-    var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-    if (userId == null)
-    {
-        return Unauthorized(new { Message = "User is not authenticated" });
-    }
-
-    var user = await _userManager.FindByIdAsync(userId);
-    if (user == null)
-    {
-        return NotFound(new { Message = "User not found" });
-    }
-
-    // Получаем роли пользователя
-    var roles = await _userManager.GetRolesAsync(user);
-
-    // Если пользователь администратор, возвращаем список всех пользователей
-    if (roles.Contains("Admin"))
-    {
-        var allUsers = await _userManager.Users.Select(u => new
+        public async Task<IActionResult> GetCurrentUser()
         {
-            u.Id,
-            u.UserName,
-            u.Email,
-            u.LockoutEnd
-        }).ToListAsync();
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId == null)
+            {
+                return Unauthorized(new { Message = "User is not authenticated" });
+            }
 
-        return Ok(new
-        {
-            Username = user.UserName,
-            Email = user.Email,
-            Role = roles.FirstOrDefault(),
-            IsAdmin = true,
-            Users = allUsers
-        });
-    }
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                return NotFound(new { Message = "User not found" });
+            }
 
-    // Если пользователь не администратор, возвращаем только его данные
-    return Ok(new
-    {
-        Username = user.UserName,
-        Email = user.Email,
-        Role = roles.FirstOrDefault(),
-        IsAdmin = false
-    });
-}
+            // Получаем роли пользователя
+            var roles = await _userManager.GetRolesAsync(user);
+
+            // Если пользователь администратор, возвращаем список всех пользователей
+            if (roles.Contains("Admin"))
+            {
+                var allUsers = await _userManager.Users.Select(u => new
+                {
+                    u.Id,
+                    u.UserName,
+                    u.Email,
+                    u.LockoutEnd
+                }).ToListAsync();
+
+                return Ok(new
+                {
+                    Username = user.UserName,
+                    Email = user.Email,
+                    Role = roles.FirstOrDefault(),
+                    IsAdmin = true,
+                    Users = allUsers
+                });
+            }
+
+            // Если пользователь не администратор, возвращаем только его данные
+            return Ok(new
+            {
+                Username = user.UserName,
+                Email = user.Email,
+                Role = roles.FirstOrDefault(),
+                IsAdmin = false
+            });
+        }
         // Получение всех пользователей (доступно только администратору)
         [HttpGet("all")]
         [Authorize(Roles = "Admin")] // Теперь работает
@@ -197,12 +203,12 @@ public async Task<IActionResult> GetCurrentUser()
         }
     }
 
-    public class RegisterModel
-    {
-        public string Username { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-    }
+    // public class RegisterModel
+    // {
+    //     public string Username { get; set; }
+    //     public string Email { get; set; }
+    //     public string Password { get; set; }
+    // }
 
     public class LoginModel
     {
