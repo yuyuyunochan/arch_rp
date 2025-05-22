@@ -11,7 +11,7 @@ namespace final_backend_project.Data
         {
         }
 
-        public DbSet<Article> Articles { get; set; }
+        public DbSet<Article> AspNetArticles { get; set; }
         public DbSet<Review> Reviews { get; set; }
     }
 }

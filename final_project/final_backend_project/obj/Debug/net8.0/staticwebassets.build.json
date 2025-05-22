@@ -1,0 +1,228 @@
+{
+  "Version": 1,
+  "Hash": "oosFwwBFJwvxZiyLek6KJDB3f7G4cJE4KnQuOWNEyrY=",
+  "Source": "final_backend_project",
+  "BasePath": "_content/final_backend_project",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "final_backend_project\\wwwroot",
+      "Source": "final_backend_project",
+      "ContentRoot": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\",
+      "BasePath": "_content/final_backend_project",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\images\\pr01.pdf",
+      "SourceId": "final_backend_project",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\",
+      "BasePath": "_content/final_backend_project",
+      "RelativePath": "images/pr01#[.{fingerprint}]?.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8p80cjnaoy",
+      "Integrity": "DNTWNlJx8uEz2gHUhjNUY11ukJwuiSC+03L5XrEVrJM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\pr01.pdf"
+    },
+    {
+      "Identity": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\images\\pr02.docx",
+      "SourceId": "final_backend_project",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\",
+      "BasePath": "_content/final_backend_project",
+      "RelativePath": "images/pr02#[.{fingerprint}]?.docx",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "xt7pkgdtfm",
+      "Integrity": "5dc0eFLM19tKXlbsFS761la6z1SuPu6O0yLfPdTT4Ac=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\pr02.docx"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "images/pr01.8p80cjnaoy.pdf",
+      "AssetFile": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\images\\pr01.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "50399"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DNTWNlJx8uEz2gHUhjNUY11ukJwuiSC+03L5XrEVrJM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 15:06:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8p80cjnaoy"
+        },
+        {
+          "Name": "label",
+          "Value": "images/pr01.pdf"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-DNTWNlJx8uEz2gHUhjNUY11ukJwuiSC+03L5XrEVrJM="
+        }
+      ]
+    },
+    {
+      "Route": "images/pr01.pdf",
+      "AssetFile": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\images\\pr01.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "50399"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DNTWNlJx8uEz2gHUhjNUY11ukJwuiSC+03L5XrEVrJM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 15:06:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-DNTWNlJx8uEz2gHUhjNUY11ukJwuiSC+03L5XrEVrJM="
+        }
+      ]
+    },
+    {
+      "Route": "images/pr02.docx",
+      "AssetFile": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\images\\pr02.docx",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "41165"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5dc0eFLM19tKXlbsFS761la6z1SuPu6O0yLfPdTT4Ac=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 15:18:22 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-5dc0eFLM19tKXlbsFS761la6z1SuPu6O0yLfPdTT4Ac="
+        }
+      ]
+    },
+    {
+      "Route": "images/pr02.xt7pkgdtfm.docx",
+      "AssetFile": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\images\\pr02.docx",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "41165"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5dc0eFLM19tKXlbsFS761la6z1SuPu6O0yLfPdTT4Ac=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 15:18:22 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xt7pkgdtfm"
+        },
+        {
+          "Name": "label",
+          "Value": "images/pr02.docx"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-5dc0eFLM19tKXlbsFS761la6z1SuPu6O0yLfPdTT4Ac="
+        }
+      ]
+    }
+  ]
+}

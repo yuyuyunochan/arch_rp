@@ -1,0 +1,28 @@
+﻿<Project>
+  <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/final_backend_project/images/pr01.8p80cjnaoy.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\pr01.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"8p80cjnaoy"},{"Name":"integrity","Value":"sha256-DNTWNlJx8uEz2gHUhjNUY11ukJwuiSC\u002B03L5XrEVrJM="},{"Name":"label","Value":"_content/final_backend_project/images/pr01.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"50399"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022DNTWNlJx8uEz2gHUhjNUY11ukJwuiSC\u002B03L5XrEVrJM=\u0022"},{"Name":"Last-Modified","Value":"Thu, 22 May 2025 15:06:26 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/final_backend_project/images/pr01.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\pr01.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-DNTWNlJx8uEz2gHUhjNUY11ukJwuiSC\u002B03L5XrEVrJM="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"50399"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022DNTWNlJx8uEz2gHUhjNUY11ukJwuiSC\u002B03L5XrEVrJM=\u0022"},{"Name":"Last-Modified","Value":"Thu, 22 May 2025 15:06:26 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/final_backend_project/images/pr02.docx">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\pr02.docx'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-5dc0eFLM19tKXlbsFS761la6z1SuPu6O0yLfPdTT4Ac="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"41165"},{"Name":"Content-Type","Value":"application/vnd.openxmlformats-officedocument.wordprocessingml.document"},{"Name":"ETag","Value":"\u00225dc0eFLM19tKXlbsFS761la6z1SuPu6O0yLfPdTT4Ac=\u0022"},{"Name":"Last-Modified","Value":"Thu, 22 May 2025 15:18:22 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/final_backend_project/images/pr02.xt7pkgdtfm.docx">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\pr02.docx'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"xt7pkgdtfm"},{"Name":"integrity","Value":"sha256-5dc0eFLM19tKXlbsFS761la6z1SuPu6O0yLfPdTT4Ac="},{"Name":"label","Value":"_content/final_backend_project/images/pr02.docx"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"41165"},{"Name":"Content-Type","Value":"application/vnd.openxmlformats-officedocument.wordprocessingml.document"},{"Name":"ETag","Value":"\u00225dc0eFLM19tKXlbsFS761la6z1SuPu6O0yLfPdTT4Ac=\u0022"},{"Name":"Last-Modified","Value":"Thu, 22 May 2025 15:18:22 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+  </ItemGroup>
+</Project>

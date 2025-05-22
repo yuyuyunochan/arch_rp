@@ -1,0 +1,170 @@
+{
+  "Version": 1,
+  "ManifestType": "Build",
+  "Endpoints": [
+    {
+      "Route": "images/pr01.8p80cjnaoy.pdf",
+      "AssetFile": "images/pr01.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "50399"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DNTWNlJx8uEz2gHUhjNUY11ukJwuiSC+03L5XrEVrJM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 15:06:26 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8p80cjnaoy"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-DNTWNlJx8uEz2gHUhjNUY11ukJwuiSC+03L5XrEVrJM="
+        },
+        {
+          "Name": "label",
+          "Value": "images/pr01.pdf"
+        }
+      ]
+    },
+    {
+      "Route": "images/pr01.pdf",
+      "AssetFile": "images/pr01.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "50399"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DNTWNlJx8uEz2gHUhjNUY11ukJwuiSC+03L5XrEVrJM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 15:06:26 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-DNTWNlJx8uEz2gHUhjNUY11ukJwuiSC+03L5XrEVrJM="
+        }
+      ]
+    },
+    {
+      "Route": "images/pr02.docx",
+      "AssetFile": "images/pr02.docx",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "41165"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5dc0eFLM19tKXlbsFS761la6z1SuPu6O0yLfPdTT4Ac=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 15:18:22 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-5dc0eFLM19tKXlbsFS761la6z1SuPu6O0yLfPdTT4Ac="
+        }
+      ]
+    },
+    {
+      "Route": "images/pr02.xt7pkgdtfm.docx",
+      "AssetFile": "images/pr02.docx",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "41165"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5dc0eFLM19tKXlbsFS761la6z1SuPu6O0yLfPdTT4Ac=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 15:18:22 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xt7pkgdtfm"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-5dc0eFLM19tKXlbsFS761la6z1SuPu6O0yLfPdTT4Ac="
+        },
+        {
+          "Name": "label",
+          "Value": "images/pr02.docx"
+        }
+      ]
+    }
+  ]
+}
