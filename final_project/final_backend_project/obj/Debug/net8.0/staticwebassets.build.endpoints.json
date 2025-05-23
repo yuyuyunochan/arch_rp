@@ -368,6 +368,88 @@
       ]
     },
     {
+      "Route": "uploads/pr02.pdf",
+      "AssetFile": "uploads/pr02.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "128966"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NBlpGVTi/sTXdM7Zjce5V9LShtefbnyvm36YCmBBOCc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 23 May 2025 17:52:35 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-NBlpGVTi/sTXdM7Zjce5V9LShtefbnyvm36YCmBBOCc="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/pr02.s4a2zxic7h.pdf",
+      "AssetFile": "uploads/pr02.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "128966"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NBlpGVTi/sTXdM7Zjce5V9LShtefbnyvm36YCmBBOCc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 23 May 2025 17:52:35 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "s4a2zxic7h"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-NBlpGVTi/sTXdM7Zjce5V9LShtefbnyvm36YCmBBOCc="
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/pr02.pdf"
+        }
+      ]
+    },
+    {
       "Route": "uploads/pr02.xt7pkgdtfm.docx",
       "AssetFile": "uploads/pr02.docx",
       "Selectors": [],
@@ -659,6 +741,88 @@
       ]
     },
     {
+      "Route": "uploads/ИП-314,315,316,317.docx",
+      "AssetFile": "uploads/ИП-314,315,316,317.docx",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17151"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"07iJaGAjppgIaOSM8n6xaL4I9yl2C8H8QU4hPvb+KYs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 23 May 2025 13:34:22 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-07iJaGAjppgIaOSM8n6xaL4I9yl2C8H8QU4hPvb+KYs="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/ИП-314,315,316,317.vl81bjkyvl.docx",
+      "AssetFile": "uploads/ИП-314,315,316,317.docx",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17151"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"07iJaGAjppgIaOSM8n6xaL4I9yl2C8H8QU4hPvb+KYs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 23 May 2025 13:34:22 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "vl81bjkyvl"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-07iJaGAjppgIaOSM8n6xaL4I9yl2C8H8QU4hPvb+KYs="
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/ИП-314,315,316,317.docx"
+        }
+      ]
+    },
+    {
       "Route": "uploads/Методичка — копия.eaa587bvvt.pdf",
       "AssetFile": "uploads/Методичка — копия.pdf",
       "Selectors": [],
@@ -737,6 +901,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-VrcNjMEtqtcB28QXhjROa0DvGmlg/5+WCVHRWoD8uGk="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/Отчет по 10 лабораторной Сети ЭВМ.mha66nrdej.pdf",
+      "AssetFile": "uploads/Отчет по 10 лабораторной Сети ЭВМ.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "617628"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZhPTmk5Nre3aScZeDF/08Q2Vp3N0W5cR/y7hr519PaU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 23 May 2025 17:50:37 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mha66nrdej"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZhPTmk5Nre3aScZeDF/08Q2Vp3N0W5cR/y7hr519PaU="
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/Отчет по 10 лабораторной Сети ЭВМ.pdf"
+        }
+      ]
+    },
+    {
+      "Route": "uploads/Отчет по 10 лабораторной Сети ЭВМ.pdf",
+      "AssetFile": "uploads/Отчет по 10 лабораторной Сети ЭВМ.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "617628"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZhPTmk5Nre3aScZeDF/08Q2Vp3N0W5cR/y7hr519PaU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 23 May 2025 17:50:37 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZhPTmk5Nre3aScZeDF/08Q2Vp3N0W5cR/y7hr519PaU="
         }
       ]
     },
@@ -931,7 +1177,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 22 May 2025 19:31:08 GMT"
+          "Value": "Fri, 23 May 2025 00:01:22 GMT"
         }
       ],
       "EndpointProperties": [
@@ -976,7 +1222,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 22 May 2025 19:31:08 GMT"
+          "Value": "Fri, 23 May 2025 00:01:22 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1147,6 +1393,88 @@
         {
           "Name": "label",
           "Value": "uploads/Титульный лист отчета по учебной практике 2025.docx"
+        }
+      ]
+    },
+    {
+      "Route": "uploads/отчет12_электротехника_ИП316.docx",
+      "AssetFile": "uploads/отчет12_электротехника_ИП316.docx",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "125436"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"OvWax0fEYuXOIqIXTZl03fYG/fXq33iAjO/9RK89Ohg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 23:55:51 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-OvWax0fEYuXOIqIXTZl03fYG/fXq33iAjO/9RK89Ohg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/отчет12_электротехника_ИП316.ilolrcnqdm.docx",
+      "AssetFile": "uploads/отчет12_электротехника_ИП316.docx",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "125436"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"OvWax0fEYuXOIqIXTZl03fYG/fXq33iAjO/9RK89Ohg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 23:55:51 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ilolrcnqdm"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-OvWax0fEYuXOIqIXTZl03fYG/fXq33iAjO/9RK89Ohg="
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/отчет12_электротехника_ИП316.docx"
         }
       ]
     }

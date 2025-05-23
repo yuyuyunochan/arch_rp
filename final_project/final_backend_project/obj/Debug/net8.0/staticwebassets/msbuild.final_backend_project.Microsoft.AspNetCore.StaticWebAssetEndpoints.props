@@ -54,6 +54,18 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-5dc0eFLM19tKXlbsFS761la6z1SuPu6O0yLfPdTT4Ac="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"41165"},{"Name":"Content-Type","Value":"application/vnd.openxmlformats-officedocument.wordprocessingml.document"},{"Name":"ETag","Value":"\u00225dc0eFLM19tKXlbsFS761la6z1SuPu6O0yLfPdTT4Ac=\u0022"},{"Name":"Last-Modified","Value":"Thu, 22 May 2025 15:27:01 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/final_backend_project/uploads/pr02.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\pr02.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-NBlpGVTi/sTXdM7Zjce5V9LShtefbnyvm36YCmBBOCc="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"128966"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022NBlpGVTi/sTXdM7Zjce5V9LShtefbnyvm36YCmBBOCc=\u0022"},{"Name":"Last-Modified","Value":"Fri, 23 May 2025 17:52:35 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/final_backend_project/uploads/pr02.s4a2zxic7h.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\pr02.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"s4a2zxic7h"},{"Name":"integrity","Value":"sha256-NBlpGVTi/sTXdM7Zjce5V9LShtefbnyvm36YCmBBOCc="},{"Name":"label","Value":"_content/final_backend_project/uploads/pr02.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"128966"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022NBlpGVTi/sTXdM7Zjce5V9LShtefbnyvm36YCmBBOCc=\u0022"},{"Name":"Last-Modified","Value":"Fri, 23 May 2025 17:52:35 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/final_backend_project/uploads/pr02.xt7pkgdtfm.docx">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\pr02.docx'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
@@ -96,6 +108,18 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"uqceyfnuif"},{"Name":"integrity","Value":"sha256-Bib15oG10iAtPOJj55rpeJ/RSwKOZuyqlMiAqHe5Ts4="},{"Name":"label","Value":"_content/final_backend_project/uploads/\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442 Microsoft Word.docx"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"41152"},{"Name":"Content-Type","Value":"application/vnd.openxmlformats-officedocument.wordprocessingml.document"},{"Name":"ETag","Value":"\u0022Bib15oG10iAtPOJj55rpeJ/RSwKOZuyqlMiAqHe5Ts4=\u0022"},{"Name":"Last-Modified","Value":"Thu, 22 May 2025 15:45:51 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/final_backend_project/uploads/ИП-314,315,316,317.docx">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\ИП-314,315,316,317.docx'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-07iJaGAjppgIaOSM8n6xaL4I9yl2C8H8QU4hPvb\u002BKYs="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"17151"},{"Name":"Content-Type","Value":"application/vnd.openxmlformats-officedocument.wordprocessingml.document"},{"Name":"ETag","Value":"\u002207iJaGAjppgIaOSM8n6xaL4I9yl2C8H8QU4hPvb\u002BKYs=\u0022"},{"Name":"Last-Modified","Value":"Fri, 23 May 2025 13:34:22 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/final_backend_project/uploads/ИП-314,315,316,317.vl81bjkyvl.docx">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\ИП-314,315,316,317.docx'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"vl81bjkyvl"},{"Name":"integrity","Value":"sha256-07iJaGAjppgIaOSM8n6xaL4I9yl2C8H8QU4hPvb\u002BKYs="},{"Name":"label","Value":"_content/final_backend_project/uploads/\u0418\u041F-314,315,316,317.docx"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"17151"},{"Name":"Content-Type","Value":"application/vnd.openxmlformats-officedocument.wordprocessingml.document"},{"Name":"ETag","Value":"\u002207iJaGAjppgIaOSM8n6xaL4I9yl2C8H8QU4hPvb\u002BKYs=\u0022"},{"Name":"Last-Modified","Value":"Fri, 23 May 2025 13:34:22 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/final_backend_project/uploads/Методичка — копия.eaa587bvvt.pdf">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Методичка — копия.pdf'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
@@ -119,6 +143,18 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"mrhyk1bzpl"},{"Name":"integrity","Value":"sha256-jsl2gDajmOzqS6cPteyevOxHS1RvODv4aeqDaR7Vwjo="},{"Name":"label","Value":"_content/final_backend_project/uploads/\u041E\u0442\u0447\u0451\u0442 \u043F\u043E \u043A\u0443\u0440\u0441\u043E\u0432\u043E\u0439 \u0411\u0443\u0440\u0434\u0443\u043A\u043E\u0432\u0441\u043A\u0438\u0439 \u0418\u043B\u044C\u044F \u0418\u041F-813.docx"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"563120"},{"Name":"Content-Type","Value":"application/vnd.openxmlformats-officedocument.wordprocessingml.document"},{"Name":"ETag","Value":"\u0022jsl2gDajmOzqS6cPteyevOxHS1RvODv4aeqDaR7Vwjo=\u0022"},{"Name":"Last-Modified","Value":"Thu, 22 May 2025 20:43:39 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/final_backend_project/uploads/Отчет по 10 лабораторной Сети ЭВМ.mha66nrdej.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Отчет по 10 лабораторной Сети ЭВМ.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"mha66nrdej"},{"Name":"integrity","Value":"sha256-ZhPTmk5Nre3aScZeDF/08Q2Vp3N0W5cR/y7hr519PaU="},{"Name":"label","Value":"_content/final_backend_project/uploads/\u041E\u0442\u0447\u0435\u0442 \u043F\u043E 10 \u043B\u0430\u0431\u043E\u0440\u0430\u0442\u043E\u0440\u043D\u043E\u0439 \u0421\u0435\u0442\u0438 \u042D\u0412\u041C.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"617628"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022ZhPTmk5Nre3aScZeDF/08Q2Vp3N0W5cR/y7hr519PaU=\u0022"},{"Name":"Last-Modified","Value":"Fri, 23 May 2025 17:50:37 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/final_backend_project/uploads/Отчет по 10 лабораторной Сети ЭВМ.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Отчет по 10 лабораторной Сети ЭВМ.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-ZhPTmk5Nre3aScZeDF/08Q2Vp3N0W5cR/y7hr519PaU="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"617628"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022ZhPTmk5Nre3aScZeDF/08Q2Vp3N0W5cR/y7hr519PaU=\u0022"},{"Name":"Last-Modified","Value":"Fri, 23 May 2025 17:50:37 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/final_backend_project/uploads/Отчет по курсовой Ларина В.И..docx">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Отчет по курсовой Ларина В.И..docx'))</AssetFile>
@@ -144,17 +180,29 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-D4ooEcN149ToltD4anXG\u002BlV/v7GlNqSrUNGLohvhGyg="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"90320"},{"Name":"Content-Type","Value":"application/vnd.openxmlformats-officedocument.wordprocessingml.document"},{"Name":"ETag","Value":"\u0022D4ooEcN149ToltD4anXG\u002BlV/v7GlNqSrUNGLohvhGyg=\u0022"},{"Name":"Last-Modified","Value":"Thu, 22 May 2025 16:13:42 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/final_backend_project/uploads/отчет12_электротехника_ИП316.docx">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\отчет12_электротехника_ИП316.docx'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-OvWax0fEYuXOIqIXTZl03fYG/fXq33iAjO/9RK89Ohg="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"125436"},{"Name":"Content-Type","Value":"application/vnd.openxmlformats-officedocument.wordprocessingml.document"},{"Name":"ETag","Value":"\u0022OvWax0fEYuXOIqIXTZl03fYG/fXq33iAjO/9RK89Ohg=\u0022"},{"Name":"Last-Modified","Value":"Thu, 22 May 2025 23:55:51 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/final_backend_project/uploads/отчет12_электротехника_ИП316.ilolrcnqdm.docx">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\отчет12_электротехника_ИП316.docx'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ilolrcnqdm"},{"Name":"integrity","Value":"sha256-OvWax0fEYuXOIqIXTZl03fYG/fXq33iAjO/9RK89Ohg="},{"Name":"label","Value":"_content/final_backend_project/uploads/\u043E\u0442\u0447\u0435\u044212_\u044D\u043B\u0435\u043A\u0442\u0440\u043E\u0442\u0435\u0445\u043D\u0438\u043A\u0430_\u0418\u041F316.docx"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"125436"},{"Name":"Content-Type","Value":"application/vnd.openxmlformats-officedocument.wordprocessingml.document"},{"Name":"ETag","Value":"\u0022OvWax0fEYuXOIqIXTZl03fYG/fXq33iAjO/9RK89Ohg=\u0022"},{"Name":"Last-Modified","Value":"Thu, 22 May 2025 23:55:51 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/final_backend_project/uploads/Отчет_Учебная_Практика.bgc5v5nkdt.docx">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Отчет_Учебная_Практика.docx'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"bgc5v5nkdt"},{"Name":"integrity","Value":"sha256-tQ7E0vyfwEXTrdtOxsiGd8lqxV312T8nX/mBnbChYmE="},{"Name":"label","Value":"_content/final_backend_project/uploads/\u041E\u0442\u0447\u0435\u0442_\u0423\u0447\u0435\u0431\u043D\u0430\u044F_\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430.docx"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"308873"},{"Name":"Content-Type","Value":"application/vnd.openxmlformats-officedocument.wordprocessingml.document"},{"Name":"ETag","Value":"\u0022tQ7E0vyfwEXTrdtOxsiGd8lqxV312T8nX/mBnbChYmE=\u0022"},{"Name":"Last-Modified","Value":"Thu, 22 May 2025 19:31:08 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"308873"},{"Name":"Content-Type","Value":"application/vnd.openxmlformats-officedocument.wordprocessingml.document"},{"Name":"ETag","Value":"\u0022tQ7E0vyfwEXTrdtOxsiGd8lqxV312T8nX/mBnbChYmE=\u0022"},{"Name":"Last-Modified","Value":"Fri, 23 May 2025 00:01:22 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/final_backend_project/uploads/Отчет_Учебная_Практика.docx">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Отчет_Учебная_Практика.docx'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-tQ7E0vyfwEXTrdtOxsiGd8lqxV312T8nX/mBnbChYmE="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"308873"},{"Name":"Content-Type","Value":"application/vnd.openxmlformats-officedocument.wordprocessingml.document"},{"Name":"ETag","Value":"\u0022tQ7E0vyfwEXTrdtOxsiGd8lqxV312T8nX/mBnbChYmE=\u0022"},{"Name":"Last-Modified","Value":"Thu, 22 May 2025 19:31:08 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"308873"},{"Name":"Content-Type","Value":"application/vnd.openxmlformats-officedocument.wordprocessingml.document"},{"Name":"ETag","Value":"\u0022tQ7E0vyfwEXTrdtOxsiGd8lqxV312T8nX/mBnbChYmE=\u0022"},{"Name":"Last-Modified","Value":"Fri, 23 May 2025 00:01:22 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/final_backend_project/uploads/Титульный лист отчета по учебной практике 2025.docx">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Титульный лист отчета по учебной практике 2025.docx'))</AssetFile>

@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\uploads\\pr02.docx"
     },
     {
+      "Id": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\pr02.pdf",
+      "PackagePath": "staticwebassets\\uploads\\pr02.pdf"
+    },
+    {
       "Id": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\pr03.docx",
       "PackagePath": "staticwebassets\\uploads\\pr03.docx"
     },
@@ -33,8 +37,16 @@
       "PackagePath": "staticwebassets\\uploads\\Документ Microsoft Word.docx"
     },
     {
+      "Id": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\ИП-314,315,316,317.docx",
+      "PackagePath": "staticwebassets\\uploads\\ИП-314,315,316,317.docx"
+    },
+    {
       "Id": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\Методичка — копия.pdf",
       "PackagePath": "staticwebassets\\uploads\\Методичка — копия.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\Отчет по 10 лабораторной Сети ЭВМ.pdf",
+      "PackagePath": "staticwebassets\\uploads\\Отчет по 10 лабораторной Сети ЭВМ.pdf"
     },
     {
       "Id": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\Отчет по курсовой Ларина В.И..docx",
@@ -55,6 +67,10 @@
     {
       "Id": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\Титульный лист отчета по учебной практике 2025.docx",
       "PackagePath": "staticwebassets\\uploads\\Титульный лист отчета по учебной практике 2025.docx"
+    },
+    {
+      "Id": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\отчет12_электротехника_ИП316.docx",
+      "PackagePath": "staticwebassets\\uploads\\отчет12_электротехника_ИП316.docx"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.final_backend_project.props",

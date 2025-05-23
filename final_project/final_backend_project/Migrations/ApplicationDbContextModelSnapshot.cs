@@ -206,6 +206,7 @@ namespace final_backend_project.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<string>("UserName")
+                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("character varying(256)");
 
@@ -241,11 +242,9 @@ namespace final_backend_project.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("FilePath")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("ReviewerId")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Status")
@@ -273,8 +272,16 @@ namespace final_backend_project.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("AdditionalComments")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<int>("ArticleId")
                         .HasColumnType("integer");
+
+                    b.Property<string>("ConfidentialCommentsToEditor")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("Content")
                         .IsRequired()
@@ -283,7 +290,26 @@ namespace final_backend_project.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<string>("Originality")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("OverallRating")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("PresentationQuality")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Recommendation")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("ReviewerId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("TechnicalMerit")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -293,7 +319,7 @@ namespace final_backend_project.Migrations
 
                     b.HasIndex("ReviewerId");
 
-                    b.ToTable("Reviews");
+                    b.ToTable("AspNetReviews");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -357,9 +383,7 @@ namespace final_backend_project.Migrations
 
                     b.HasOne("final_backend_project.Models.ApplicationUser", "Reviewer")
                         .WithMany()
-                        .HasForeignKey("ReviewerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ReviewerId");
 
                     b.Navigation("Author");
 
@@ -369,7 +393,7 @@ namespace final_backend_project.Migrations
             modelBuilder.Entity("final_backend_project.Models.Review", b =>
                 {
                     b.HasOne("final_backend_project.Models.Article", "Article")
-                        .WithMany("Reviews")
+                        .WithMany()
                         .HasForeignKey("ArticleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -383,11 +407,6 @@ namespace final_backend_project.Migrations
                     b.Navigation("Article");
 
                     b.Navigation("Reviewer");
-                });
-
-            modelBuilder.Entity("final_backend_project.Models.Article", b =>
-                {
-                    b.Navigation("Reviews");
                 });
 #pragma warning restore 612, 618
         }

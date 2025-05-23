@@ -6,7 +6,8 @@ using final_backend_project.Data;
 using final_backend_project.Models;
 using final_backend_project.Models.Dto;
 using System.Security.Claims;           // Для ClaimTypes
-using Microsoft.AspNetCore.Http;        // Для FindFirstValue()
+using Microsoft.AspNetCore.Http;      // Для FindFirstValue()
+using System.ComponentModel.DataAnnotations;
 
 namespace final_backend_project.Controllers
 {
@@ -22,6 +23,7 @@ namespace final_backend_project.Controllers
             _context = context;
             _userManager = userManager; // Внедрение UserManager
         }
+
         [HttpGet]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetArticles()
@@ -141,7 +143,92 @@ namespace final_backend_project.Controllers
         {
             public string Status { get; set; }
         }
+        [HttpPost("{id}/review")]
+        [Authorize(Roles = "Reviewer")] // Только рецензенты могут отправлять рецензии
+        public async Task<IActionResult> SubmitReview(int id, [FromBody] ReviewModel reviewData)
+        {
+            var article = await _context.AspNetArticles.FindAsync(id);
+            if (article == null)
+            {
+                return NotFound(new { Message = "Статья не найдена." });
+            }
 
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId == null)
+            {
+                return Unauthorized(new { Message = "Пользователь не авторизован." });
+            }
+
+            // Создаем новую рецензию
+            var review = new Review
+            {
+                ArticleId = id,
+                ReviewerId = userId,
+                Recommendation = reviewData.Recommendation,
+                TechnicalMerit = reviewData.TechnicalMerit,
+                Originality = reviewData.Originality,
+                PresentationQuality = reviewData.PresentationQuality,
+                AdditionalComments = reviewData.AdditionalComments,
+                ConfidentialCommentsToEditor = reviewData.ConfidentialCommentsToEditor,
+                CreatedAt = DateTime.UtcNow
+            };
+
+            _context.AspNetReviews.Add(review);
+
+            // Обновляем статус статьи
+            article.Status = reviewData.Status;
+
+            await _context.SaveChangesAsync();
+
+            return Ok(new { Message = "Рецензия успешно отправлена.", ReviewId = review.Id });
+        }
+        [HttpGet("reviews/{articleId}")]
+        [Authorize(Roles = "Author")] // Разрешаем только авторам просматривать рецензии
+        public async Task<IActionResult> GetReviewsForArticle(int articleId)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId == null)
+            {
+                return Unauthorized(new { Message = "Пользователь не авторизован." });
+            }
+
+            var article = await _context.AspNetArticles.FindAsync(articleId);
+            if (article == null)
+            {
+                return NotFound(new { Message = "Статья не найдена." });
+            }
+
+            if (article.AuthorId != userId)
+            {
+                return Ok(new { Message = "Some message" });
+            }
+
+
+            // Получаем первую рецензию
+            var review = await _context.AspNetReviews
+                .Where(r => r.ArticleId == articleId)
+                .Include(r => r.Reviewer)
+                .Select(r => new
+                {
+                    r.Id,
+                    r.Recommendation,
+                    r.TechnicalMerit,
+                    r.Originality,
+                    r.PresentationQuality,
+                    r.AdditionalComments,
+                    r.ConfidentialCommentsToEditor,
+                    r.CreatedAt,
+                    ReviewerName = r.Reviewer.UserName ?? "Не назначен"
+                })
+                .FirstOrDefaultAsync();
+
+            if (review == null)
+            {
+                return Ok(null); // Возвращаем null, если рецензий нет
+            }
+
+            return Ok(review);
+        }
         [HttpPut("{id}/update-status")]
         [Authorize(Roles = "Reviewer")]
         public async Task<IActionResult> UpdateArticleStatus(int id, [FromBody] UpdateArticleStatusRequest request)
@@ -260,5 +347,27 @@ namespace final_backend_project.Controllers
         public string Title { get; set; }
         public IFormFile File { get; set; }
         public string Content { get; set; }
+    }
+    public class ReviewModel
+    {
+        [Required]
+        public string Recommendation { get; set; }
+
+        [Required]
+        public string TechnicalMerit { get; set; }
+
+        [Required]
+        public string Originality { get; set; }
+
+        [Required]
+        public string PresentationQuality { get; set; }
+
+        [Required]
+        public string AdditionalComments { get; set; }
+
+        [Required]
+        public string ConfidentialCommentsToEditor { get; set; }
+            public string Status { get; set; }
+
     }
 }

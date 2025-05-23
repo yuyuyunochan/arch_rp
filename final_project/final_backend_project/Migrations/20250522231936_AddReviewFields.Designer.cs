@@ -12,8 +12,8 @@ using final_backend_project.Data;
 namespace final_backend_project.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250517190255_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250522231936_AddReviewFields")]
+    partial class AddReviewFields
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -209,6 +209,7 @@ namespace final_backend_project.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<string>("UserName")
+                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("character varying(256)");
 
@@ -233,25 +234,37 @@ namespace final_backend_project.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("AuthorId")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Content")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<string>("FilePath")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ReviewerId")
+                        .HasColumnType("text");
+
                     b.Property<string>("Status")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AuthorId");
 
-                    b.ToTable("Articles");
+                    b.HasIndex("ReviewerId");
+
+                    b.ToTable("AspNetArticles");
                 });
 
             modelBuilder.Entity("final_backend_project.Models.Review", b =>
@@ -262,19 +275,45 @@ namespace final_backend_project.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("AdditionalComments")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<int>("ArticleId")
                         .HasColumnType("integer");
 
+                    b.Property<string>("ConfidentialCommentsToEditor")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("Content")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("ReviewerId")
+                    b.Property<string>("Originality")
+                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Status")
+                    b.Property<int>("OverallRating")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("PresentationQuality")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Recommendation")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ReviewerId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("TechnicalMerit")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -341,9 +380,17 @@ namespace final_backend_project.Migrations
                 {
                     b.HasOne("final_backend_project.Models.ApplicationUser", "Author")
                         .WithMany()
-                        .HasForeignKey("AuthorId");
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("final_backend_project.Models.ApplicationUser", "Reviewer")
+                        .WithMany()
+                        .HasForeignKey("ReviewerId");
 
                     b.Navigation("Author");
+
+                    b.Navigation("Reviewer");
                 });
 
             modelBuilder.Entity("final_backend_project.Models.Review", b =>
@@ -356,7 +403,9 @@ namespace final_backend_project.Migrations
 
                     b.HasOne("final_backend_project.Models.ApplicationUser", "Reviewer")
                         .WithMany()
-                        .HasForeignKey("ReviewerId");
+                        .HasForeignKey("ReviewerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Article");
 

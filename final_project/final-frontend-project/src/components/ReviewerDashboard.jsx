@@ -1,11 +1,13 @@
 import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
+import ReviewForm from "./ReviewForm"; // Импортируем форму рецензии
 
 const ReviewerDashboard = () => {
   const token = localStorage.getItem("token");
   const [availableArticles, setAvailableArticles] = useState([]);
   const [activeArticles, setActiveArticles] = useState([]);
   const [archivedArticles, setArchivedArticles] = useState([]);
+  const [selectedArticleId, setSelectedArticleId] = useState(null); // ID выбранной статьи для рецензии
 
   // Загрузка доступных статей
   const fetchAvailableArticles = useCallback(async () => {
@@ -24,6 +26,28 @@ const ReviewerDashboard = () => {
       );
     }
   }, [token]);
+  // const handleUpdateStatus = async (id, status) => {
+  //   try {
+  //     await axios.put(
+  //       `http://localhost:5000/api/articles/${id}/update-status`,
+  //       { status }, // Отправляем объект
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //           "Content-Type": "application/json", // Явно указываем тип данных
+  //         },
+  //       }
+  //     );
+  //     alert("Статус статьи успешно обновлен.");
+  //     fetchAssignedArticles(); // Обновляем список статей
+  //   } catch (error) {
+  //     console.error(
+  //       "Ошибка при обновлении статуса:",
+  //       error.response?.data || error.message
+  //     );
+  //     alert("Не удалось обновить статус статьи.");
+  //   }
+  // };
 
   // Загрузка назначенных статей
   const fetchAssignedArticles = useCallback(async () => {
@@ -71,30 +95,35 @@ const ReviewerDashboard = () => {
     }
   };
 
-  // Обновить статус статьи
-  const handleUpdateStatus = async (id, status) => {
-    try {
-      await axios.put(
-        `http://localhost:5000/api/articles/${id}/update-status`,
-        { status }, // Отправляем объект
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json", // Явно указываем тип данных
-          },
-        }
-      );
-      alert("Статус статьи успешно обновлен.");
-      fetchAssignedArticles(); // Обновляем список статей вместо перезагрузки страницы
-    } catch (error) {
-      console.error(
-        "Ошибка при обновлении статуса:",
-        error.response?.data || error.message
-      );
-      alert("Не удалось обновить статус статьи.");
-    }
-  };
+  // Отправка рецензии
+const handleSubmitReview = async (reviewData) => {
+  try {
+    // Логируем отправляемые данные
+    console.log("Отправляемые данные на сервер:", reviewData);
 
+    // Отправляем запрос
+    await axios.post(
+      `http://localhost:5000/api/articles/${selectedArticleId}/review`,
+      reviewData,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json", // Указываем тип данных
+        },
+      }
+    );
+
+    alert("Рецензия успешно отправлена.");
+    setSelectedArticleId(null); // Скрываем форму
+    fetchAssignedArticles(); // Обновляем список статей
+  } catch (error) {
+    console.error(
+      "Ошибка при отправке рецензии:",
+      error.response?.data || error.message
+    );
+    alert("Не удалось отправить рецензию.");
+  }
+};
   // Подключение данных после авторизации
   useEffect(() => {
     if (!token) {
@@ -161,7 +190,7 @@ const ReviewerDashboard = () => {
                   {new Date(article.createdAt).toLocaleDateString()}
                 </p>
                 {/* Кнопки изменения статуса */}
-                <div>
+                {/* <div>
                   <button
                     onClick={() =>
                       handleUpdateStatus(article.id, "Under Revision")
@@ -179,12 +208,25 @@ const ReviewerDashboard = () => {
                   >
                     Отклонить
                   </button>
-                </div>
+                </div> */}
+                {/* Кнопка для открытия формы рецензии */}
+                <button onClick={() => setSelectedArticleId(article.id)}>
+                  Написать рецензию
+                </button>
               </li>
             ))}
           </ul>
         )}
       </section>
+
+      {/* Форма рецензии */}
+      {selectedArticleId && (
+        <ReviewForm
+          articleId={selectedArticleId}
+          onSubmit={handleSubmitReview}
+          onClose={() => setSelectedArticleId(null)} // Закрыть форму
+        />
+      )}
 
       {/* Блок: Архивные статьи */}
       <section>
