@@ -5,7 +5,7 @@ namespace final_backend_project.Models
     public class ApplicationUser : IdentityUser
     {
         public string? Role { get; set; }
-            public string UserName { get; set; }
+        public override string? UserName { get; set; }
         public bool IsLockedOut => LockoutEnd > DateTimeOffset.UtcNow;
     }
 }

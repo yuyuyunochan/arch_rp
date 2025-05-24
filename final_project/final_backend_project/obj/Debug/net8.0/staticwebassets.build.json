@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "AL8omtbft1fLRKO1z9cOwJHaAGNlCFgOYDMPCkPw4/g=",
+  "Hash": "bQGR2nK18UQqfOCpCIOEBCzIe8ExDNJd4DHuNmFvVxU=",
   "Source": "final_backend_project",
   "BasePath": "_content/final_backend_project",
   "Mode": "Default",
@@ -267,6 +267,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\отчет12_электротехника_ИП316.docx"
+    },
+    {
+      "Identity": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\Самостоятельная работа.pdf",
+      "SourceId": "final_backend_project",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\",
+      "BasePath": "_content/final_backend_project",
+      "RelativePath": "uploads/Самостоятельная работа#[.{fingerprint}]?.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "2x531v4o1a",
+      "Integrity": "tv3g0YaC49EMFDxLqq/WrEziy3pbvCoymdTwfaxvurg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\Самостоятельная работа.pdf"
     },
     {
       "Identity": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\Титульный лист отчета по учебной практике 2025.docx",
@@ -911,7 +932,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 23 May 2025 17:50:37 GMT"
+          "Value": "Sat, 24 May 2025 09:01:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -956,7 +977,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 23 May 2025 17:50:37 GMT"
+          "Value": "Sat, 24 May 2025 09:01:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1239,7 +1260,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 23 May 2025 00:01:22 GMT"
+          "Value": "Sat, 24 May 2025 09:09:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1284,7 +1305,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 23 May 2025 00:01:22 GMT"
+          "Value": "Sat, 24 May 2025 09:09:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1321,7 +1342,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 22 May 2025 23:55:51 GMT"
+          "Value": "Sat, 24 May 2025 08:55:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1358,7 +1379,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 22 May 2025 23:55:51 GMT"
+          "Value": "Sat, 24 May 2025 08:55:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1377,6 +1398,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-OvWax0fEYuXOIqIXTZl03fYG/fXq33iAjO/9RK89Ohg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/Самостоятельная работа.2x531v4o1a.pdf",
+      "AssetFile": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\Самостоятельная работа.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "33842"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tv3g0YaC49EMFDxLqq/WrEziy3pbvCoymdTwfaxvurg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 24 May 2025 10:23:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2x531v4o1a"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/Самостоятельная работа.pdf"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-tv3g0YaC49EMFDxLqq/WrEziy3pbvCoymdTwfaxvurg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/Самостоятельная работа.pdf",
+      "AssetFile": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\Самостоятельная работа.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "33842"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tv3g0YaC49EMFDxLqq/WrEziy3pbvCoymdTwfaxvurg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 24 May 2025 10:23:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-tv3g0YaC49EMFDxLqq/WrEziy3pbvCoymdTwfaxvurg="
         }
       ]
     },
@@ -1403,7 +1506,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 22 May 2025 19:30:28 GMT"
+          "Value": "Fri, 23 May 2025 19:16:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1440,7 +1543,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 22 May 2025 19:30:28 GMT"
+          "Value": "Fri, 23 May 2025 19:16:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1604,7 +1707,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 23 May 2025 17:52:35 GMT"
+          "Value": "Fri, 23 May 2025 19:20:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1641,7 +1744,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 23 May 2025 17:52:35 GMT"
+          "Value": "Fri, 23 May 2025 19:20:34 GMT"
         },
         {
           "Name": "Cache-Control",

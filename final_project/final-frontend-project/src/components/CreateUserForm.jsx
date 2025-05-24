@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const Register = () => {
+const CreateUserForm = () => {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -27,22 +27,26 @@ const Register = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/users/register",
-        formData
+        "http://localhost:5000/api/admin/create-user",
+        formData,
+        {
+          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        }
       );
       console.log(response.data);
-      window.location.href = "/login";
+      console.log("Пользователь успешно создан.");
     } catch (error) {
       console.error(
-        "Ошибка при регистрации:",
+        "Ошибка при создании пользователя:",
         error.response?.data || error.message
       );
-        }
+      alert("Не удалось создать пользователя.");
+    }
   };
 
   return (
-    <div className="register-container">
-      <h2>Регистрация</h2>
+    <div className="create-user-form">
+      <h2>Создать нового пользователя</h2>
       <form onSubmit={handleSubmit}>
         {/* Поле для имени пользователя */}
         <div>
@@ -101,11 +105,11 @@ const Register = () => {
           </select>
         </div>
 
-        {/* Кнопка регистрации */}
-        <button type="submit">Зарегистрироваться</button>
+        {/* Кнопка создания */}
+        <button type="submit">Создать пользователя</button>
       </form>
     </div>
   );
 };
 
-export default Register;
+export default CreateUserForm;

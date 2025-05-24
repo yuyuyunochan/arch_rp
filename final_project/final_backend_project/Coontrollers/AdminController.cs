@@ -42,31 +42,38 @@ namespace final_backend_project.Controllers
 
         // Создать нового пользователя
         [HttpPost("create-user")]
-        public async Task<IActionResult> CreateUser([FromBody] CreateUserRequest request)
+        [Authorize(Roles = "Admin")] // Разрешаем доступ только администраторам
+        public async Task<IActionResult> CreateUser([FromBody] RegisterModel model)
         {
-            if (!await _roleManager.RoleExistsAsync(request.Role))
+            if (model == null || string.IsNullOrEmpty(model.Email) || string.IsNullOrEmpty(model.Password))
             {
-                return BadRequest(new { Message = $"Role '{request.Role}' does not exist." });
+                return BadRequest(new { Message = "Invalid input data." });
             }
 
             var user = new ApplicationUser
             {
-                UserName = request.UserName,
-                Email = request.Email
+                UserName = model.Username,
+                Email = model.Email,
+                Role = model.Role // Убедитесь, что роль передается из модели
             };
 
-            var result = await _userManager.CreateAsync(user, request.Password);
+            var result = await _userManager.CreateAsync(user, model.Password);
 
             if (!result.Succeeded)
             {
                 return BadRequest(new { Message = "Failed to create user.", Errors = result.Errors });
             }
 
-            await _userManager.AddToRoleAsync(user, request.Role);
+            // Назначение роли пользователю
+            var roleResult = await _userManager.AddToRoleAsync(user, model.Role);
+
+            if (!roleResult.Succeeded)
+            {
+                return BadRequest(new { Message = "Failed to assign role to user.", Errors = roleResult.Errors });
+            }
 
             return Ok(new { Message = "User created successfully.", UserId = user.Id });
         }
-
         // Удалить пользователя
         [HttpDelete("delete-user/{id}")]
         public async Task<IActionResult> DeleteUser(string id)
@@ -85,7 +92,7 @@ namespace final_backend_project.Controllers
 
             return Ok(new { Message = "User deleted successfully." });
         }
-        
+
 
         // Заблокировать пользователя
         [HttpPost("block-user/{id}")]

@@ -40,6 +40,7 @@ const MyArticles = () => {
         {articles.length === 0 ? (
           <p>Нет статей.</p>
         ) : (
+            
           <ul>
             {articles.map((article) => (
               <li key={article.id} className="article-item">

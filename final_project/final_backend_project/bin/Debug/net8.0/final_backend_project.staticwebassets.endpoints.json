@@ -394,7 +394,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 23 May 2025 17:52:35 GMT"
+          "Value": "Fri, 23 May 2025 19:20:34 GMT"
         }
       ],
       "EndpointProperties": [
@@ -431,7 +431,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 23 May 2025 17:52:35 GMT"
+          "Value": "Fri, 23 May 2025 19:20:34 GMT"
         }
       ],
       "EndpointProperties": [
@@ -931,7 +931,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 23 May 2025 17:50:37 GMT"
+          "Value": "Sat, 24 May 2025 09:01:07 GMT"
         }
       ],
       "EndpointProperties": [
@@ -976,7 +976,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 23 May 2025 17:50:37 GMT"
+          "Value": "Sat, 24 May 2025 09:01:07 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1177,7 +1177,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 23 May 2025 00:01:22 GMT"
+          "Value": "Sat, 24 May 2025 09:09:12 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1222,7 +1222,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 23 May 2025 00:01:22 GMT"
+          "Value": "Sat, 24 May 2025 09:09:12 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1315,6 +1315,88 @@
       ]
     },
     {
+      "Route": "uploads/Самостоятельная работа.2x531v4o1a.pdf",
+      "AssetFile": "uploads/Самостоятельная работа.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "33842"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tv3g0YaC49EMFDxLqq/WrEziy3pbvCoymdTwfaxvurg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 24 May 2025 10:23:24 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2x531v4o1a"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-tv3g0YaC49EMFDxLqq/WrEziy3pbvCoymdTwfaxvurg="
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/Самостоятельная работа.pdf"
+        }
+      ]
+    },
+    {
+      "Route": "uploads/Самостоятельная работа.pdf",
+      "AssetFile": "uploads/Самостоятельная работа.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "33842"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tv3g0YaC49EMFDxLqq/WrEziy3pbvCoymdTwfaxvurg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 24 May 2025 10:23:24 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-tv3g0YaC49EMFDxLqq/WrEziy3pbvCoymdTwfaxvurg="
+        }
+      ]
+    },
+    {
       "Route": "uploads/Титульный лист отчета по учебной практике 2025.docx",
       "AssetFile": "uploads/Титульный лист отчета по учебной практике 2025.docx",
       "Selectors": [],
@@ -1341,7 +1423,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 22 May 2025 19:30:28 GMT"
+          "Value": "Fri, 23 May 2025 19:16:08 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1378,7 +1460,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 22 May 2025 19:30:28 GMT"
+          "Value": "Fri, 23 May 2025 19:16:08 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1423,7 +1505,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 22 May 2025 23:55:51 GMT"
+          "Value": "Sat, 24 May 2025 08:55:47 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1460,7 +1542,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 22 May 2025 23:55:51 GMT"
+          "Value": "Sat, 24 May 2025 08:55:47 GMT"
         }
       ],
       "EndpointProperties": [

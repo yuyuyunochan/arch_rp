@@ -316,7 +316,7 @@ namespace final_backend_project.Controllers
             return Ok(new { Message = "Article created successfully", ArticleId = article.Id });
         }
         [HttpGet("my-articles")]
-        [Authorize(Roles = "Author")]
+        [Authorize(Roles = "Author")] // Разрешаем доступ только авторам
         public async Task<IActionResult> GetMyArticles()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -325,7 +325,9 @@ namespace final_backend_project.Controllers
                 return Unauthorized(new { Message = "User is not authenticated" });
             }
 
+            // Получаем только статьи, принадлежащие текущему пользователю
             var articles = await _context.AspNetArticles
+                .Where(a => a.AuthorId == userId) // Фильтруем по AuthorId
                 .Include(a => a.Author) // Загружаем связанных авторов
                 .Include(a => a.Reviewer) // Загружаем связанных рецензентов
                 .Select(a => new
@@ -334,6 +336,7 @@ namespace final_backend_project.Controllers
                     a.Title,
                     a.Status,
                     a.CreatedAt,
+                    AuthorName = a.Author.UserName ?? "Неизвестный автор", // Имя автора
                     ReviewerName = a.Reviewer.UserName ?? "Не назначен" // Имя рецензента
                 })
                 .ToListAsync();
@@ -367,7 +370,7 @@ namespace final_backend_project.Controllers
 
         [Required]
         public string ConfidentialCommentsToEditor { get; set; }
-            public string Status { get; set; }
+        public string Status { get; set; }
 
     }
 }

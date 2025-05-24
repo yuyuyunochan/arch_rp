@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import SubmitArticleForm from "./SubmitArticleForm"; // Импортируем форму
 import MyArticles from "./MyArticles";
 import ReviewerDashboard from "./ReviewerDashboard";
+import SubmitArticleForm from "./SubmitArticleForm"
 
 const Profile = () => {
   const token = localStorage.getItem("token");
   const [user, setUser] = useState(null);
-//   const userRole = localStorage.getItem("userRole");
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -31,6 +30,7 @@ const Profile = () => {
       fetchUserData();
     }
   }, [token]);
+
   const handleLogout = () => {
     // Удаляем токен из localStorage
     localStorage.removeItem("token");
@@ -56,17 +56,22 @@ const Profile = () => {
         <p>
           <strong>Роль:</strong> {user.role}
         </p>
+        {user.isBlocked && (
+          <p style={{ color: "red" }}>Ваш аккаунт заблокирован.</p>
+        )}
       </div>
-
-      {user.role === "Author" && (
+      {!user.isBlocked && user.role === "Author" && (
         <div>
           <h2>Добавить статью</h2>
-          <SubmitArticleForm /> {/* Вставляем форму здесь */}
+          <SubmitArticleForm />
         </div>
       )}
-      {/* Список статей */}
-      {user.role === "Author" && <MyArticles />}
-      {user.role === "Reviewer" && <ReviewerDashboard />}
+      {user.role === "Author" && !user.isBlocked && <MyArticles />}
+      {user.role === "Reviewer" && !user.isBlocked && <ReviewerDashboard />}
+
+      {/* Список статей
+      {!user.isBlocked && user.role === "Author" && <MyArticles />} */}
+
       <button onClick={handleLogout}>Выйти</button>
     </div>
   );

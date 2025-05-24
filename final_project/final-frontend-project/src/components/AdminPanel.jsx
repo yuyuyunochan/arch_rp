@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import CreateUserForm from "./CreateUserForm";
 import axios from "axios";
 
 const AdminPanel = () => {
@@ -42,7 +43,7 @@ const AdminPanel = () => {
           "Ошибка при загрузке данных:",
           error.response?.data || error.message
         );
-        alert("Не удалось загрузить данные.");
+        console.log("Не удалось загрузить данные.");
       }
     };
 
@@ -52,6 +53,9 @@ const AdminPanel = () => {
       fetchData();
     }
   }, [token]);
+
+  // Фильтруем пользователей, исключая администраторов
+  const filteredUsers = users.filter((user) => user.userName !== "admin");
 
   // Блокировка пользователя
   const blockUser = async (userId) => {
@@ -70,38 +74,14 @@ const AdminPanel = () => {
             : user
         )
       );
-      alert("Пользователь заблокирован.");
+      console.log("Пользователь заблокирован.");
     } catch (error) {
       console.error(
         "Ошибка при блокировке пользователя:",
         error.response?.data || error.message
       );
-      alert("Не удалось заблокировать пользователя.");
+      console.log("Не удалось заблокировать пользователя.");
     }
-  };
-  const deleteArticle = async (id) => {
-    if (!window.confirm("Вы уверены, что хотите удалить эту статью?")) return;
-
-    try {
-      await axios.delete(`http://localhost:5000/api/articles/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      setArticles(articles.filter((article) => article.id !== id));
-      alert("Статья успешно удалена.");
-    } catch (error) {
-      console.error(
-        "Ошибка при удалении статьи:",
-        error.response?.data || error.message
-      );
-      alert("Не удалось удалить статью.");
-    }
-  };
-  const handleLogout = () => {
-    // Удаляем токен из localStorage
-    localStorage.removeItem("token");
-
-    // Перенаправляем на страницу входа
-    window.location.href = "/login";
   };
 
   // Разблокировка пользователя
@@ -119,20 +99,18 @@ const AdminPanel = () => {
           user.id === userId ? { ...user, lockoutEnd: null } : user
         )
       );
-      alert("Пользователь разблокирован.");
+      console.log("Пользователь разблокирован.");
     } catch (error) {
       console.error(
         "Ошибка при разблокировке пользователя:",
         error.response?.data || error.message
       );
-      alert("Не удалось разблокировать пользователя.");
+      console.log("Не удалось разблокировать пользователя.");
     }
   };
 
   // Удаление пользователя
   const deleteUser = async (userId) => {
-    if (!window.confirm("Вы уверены, что хотите удалить этого пользователя?"))
-      return;
 
     try {
       await axios.delete(
@@ -142,40 +120,64 @@ const AdminPanel = () => {
         }
       );
       setUsers(users.filter((user) => user.id !== userId));
-      alert("Пользователь успешно удален.");
+      console.log("Пользователь успешно удален.");
     } catch (error) {
       console.error(
         "Ошибка при удалении пользователя:",
         error.response?.data || error.message
       );
-      alert("Не удалось удалить пользователя.");
+      console.log("Не удалось удалить пользователя.");
     }
   };
 
-  // Создание нового пользователя
-  const createUser = async (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const data = {
-      userName: formData.get("username"),
-      email: formData.get("email"),
-      password: formData.get("password"),
-      role: formData.get("role"),
-    };
+  // // Создание нового пользователя
+  // const createUser = async (event) => {
+  //   event.preventDefault();
+  //   const formData = new FormData(event.target);
+  //   const data = {
+  //     userName: formData.get("username"),
+  //     email: formData.get("email"),
+  //     password: formData.get("password"),
+  //     role: formData.get("role"),
+  //   };
+    
 
+  //   try {
+  //     await axios.post("http://localhost:5000/api/admin/create-user", data, {
+  //       headers: { Authorization: `Bearer ${token}` },
+  //     });
+  //     console.log("Пользователь успешно создан.");
+  //     window.location.reload(); // Обновляем страницу
+  //   } catch (error) {
+  //     console.error(
+  //       "Ошибка при создании пользователя:",
+  //       error.response?.data || error.message
+  //     );
+  //     console.log("Не удалось создать пользователя.");
+  //   }
+  // };
+  const deleteArticle = async (id) => {
     try {
-      await axios.post("http://localhost:5000/api/admin/create-user", data, {
+      await axios.delete(`http://localhost:5000/api/articles/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      alert("Пользователь успешно создан.");
-      window.location.reload(); // Обновляем страницу
+      setArticles(articles.filter((article) => article.id !== id));
+      // console.log("Статья успешно удалена.");
     } catch (error) {
       console.error(
-        "Ошибка при создании пользователя:",
+        "Ошибка при удалении статьи:",
         error.response?.data || error.message
       );
-      alert("Не удалось создать пользователя.");
+      console.log("Не удалось удалить статью.");
     }
+  };
+
+  const handleLogout = () => {
+    // Удаляем токен из localStorage
+    localStorage.removeItem("token");
+
+    // Перенаправляем на страницу входа
+    window.location.href = "/login";
   };
 
   return (
@@ -196,22 +198,7 @@ const AdminPanel = () => {
       </div>
 
       {/* Форма создания нового пользователя */}
-      <form onSubmit={createUser} className="create-user-form">
-        <h3>Создать нового пользователя</h3>
-        <input
-          type="text"
-          name="username"
-          placeholder="Имя пользователя"
-          required
-        />
-        <input type="email" name="email" placeholder="Email" required />
-        <input type="password" name="password" placeholder="Пароль" required />
-        <select name="role" required>
-          <option value="Author">Автор</option>
-          <option value="Reviewer">Рецензент</option>
-        </select>
-        <button type="submit">Создать</button>
-      </form>
+      <CreateUserForm className="create-user-form"/>
 
       {/* Таблица пользователей */}
       <h2>Управление пользователями</h2>
@@ -221,16 +208,18 @@ const AdminPanel = () => {
             <th>ID</th>
             <th>Имя пользователя</th>
             <th>Email</th>
+            <th>Роль</th>
             <th>Статус</th>
             <th>Действия</th>
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
+          {filteredUsers.map((user) => (
             <tr key={user.id}>
               <td>{user.id}</td>
               <td>{user.userName}</td>
               <td>{user.email}</td>
+              <td>{user.role}</td>
               <td>{user.lockoutEnd ? "Заблокирован" : "Активен"}</td>
               <td>
                 {user.lockoutEnd ? (
@@ -268,9 +257,7 @@ const AdminPanel = () => {
               <td>{article.title}</td>
               <td>{article.status}</td>
               <td>{article.authorName}</td>
-              <td>
-                {article.reviewerName}
-              </td>
+              <td>{article.reviewerName}</td>
               <td>
                 <button onClick={() => deleteArticle(article.id)}>
                   Удалить
@@ -280,7 +267,7 @@ const AdminPanel = () => {
           ))}
         </tbody>
       </table>
-       <button onClick={handleLogout}>Выйти</button>
+      <button onClick={handleLogout}>Выйти</button>
     </div>
   );
 };

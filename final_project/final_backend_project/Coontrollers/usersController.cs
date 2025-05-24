@@ -65,16 +65,10 @@ namespace final_backend_project.Controllers
                 return Unauthorized(new { Message = "Invalid username or password" });
             }
 
-            // Проверяем, заблокирован ли пользователь
-            if (user.LockoutEnd != null && user.LockoutEnd > DateTime.UtcNow)
-            {
-                return Unauthorized(new { Message = "Your account is locked out." });
-            }
-
+            // Убираем проверку на блокировку
             var token = GenerateJwtToken(user);
             return Ok(new { Token = token });
         }
-
         [HttpGet("me")]
         public async Task<IActionResult> GetCurrentUser()
         {
@@ -89,6 +83,9 @@ namespace final_backend_project.Controllers
             {
                 return NotFound(new { Message = "User not found" });
             }
+
+            // Проверяем, заблокирован ли пользователь
+            bool isBlocked = user.LockoutEnd != null && user.LockoutEnd > DateTimeOffset.UtcNow;
 
             // Получаем роли пользователя
             var roles = await _userManager.GetRolesAsync(user);
@@ -110,6 +107,7 @@ namespace final_backend_project.Controllers
                     Email = user.Email,
                     Role = roles.FirstOrDefault(),
                     IsAdmin = true,
+                    IsBlocked = false, // Администратор не может быть заблокирован
                     Users = allUsers
                 });
             }
@@ -120,7 +118,8 @@ namespace final_backend_project.Controllers
                 Username = user.UserName,
                 Email = user.Email,
                 Role = roles.FirstOrDefault(),
-                IsAdmin = false
+                IsAdmin = false,
+                IsBlocked = isBlocked // Добавляем флаг блокировки
             });
         }
         // Получение всех пользователей (доступно только администратору)
@@ -134,6 +133,7 @@ namespace final_backend_project.Controllers
                 u.Id,
                 u.UserName,
                 u.Email,
+                u.Role,
                 u.LockoutEnd
             }));
         }
