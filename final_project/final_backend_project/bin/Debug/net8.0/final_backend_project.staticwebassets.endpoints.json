@@ -767,7 +767,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 22 May 2025 15:45:51 GMT"
+          "Value": "Sun, 25 May 2025 20:06:09 GMT"
         }
       ],
       "EndpointProperties": [
@@ -804,7 +804,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 22 May 2025 15:45:51 GMT"
+          "Value": "Sun, 25 May 2025 20:06:09 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1557,6 +1557,88 @@
         {
           "Name": "label",
           "Value": "uploads/Титульный лист отчета по учебной практике 2025.docx"
+        }
+      ]
+    },
+    {
+      "Route": "uploads/отчет электротехника.docx",
+      "AssetFile": "uploads/отчет электротехника.docx",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "125553"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QqAW5sg1TE9VmDn3glEpVZ64Irh9PyYHo4YCeSnWYU4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 21:07:49 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QqAW5sg1TE9VmDn3glEpVZ64Irh9PyYHo4YCeSnWYU4="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/отчет электротехника.qq8kr39vry.docx",
+      "AssetFile": "uploads/отчет электротехника.docx",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "125553"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QqAW5sg1TE9VmDn3glEpVZ64Irh9PyYHo4YCeSnWYU4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 21:07:49 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "qq8kr39vry"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-QqAW5sg1TE9VmDn3glEpVZ64Irh9PyYHo4YCeSnWYU4="
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/отчет электротехника.docx"
         }
       ]
     },

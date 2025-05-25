@@ -7,7 +7,7 @@ const Register = () => {
     username: "",
     email: "",
     password: "",
-    role: "",
+    role: "Author",
   });
   const handleLogout = () => {
     window.location.href = "/login";

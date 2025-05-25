@@ -112,13 +112,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Документ Microsoft Word.docx'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Bib15oG10iAtPOJj55rpeJ/RSwKOZuyqlMiAqHe5Ts4="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"41152"},{"Name":"Content-Type","Value":"application/vnd.openxmlformats-officedocument.wordprocessingml.document"},{"Name":"ETag","Value":"\u0022Bib15oG10iAtPOJj55rpeJ/RSwKOZuyqlMiAqHe5Ts4=\u0022"},{"Name":"Last-Modified","Value":"Thu, 22 May 2025 15:45:51 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"41152"},{"Name":"Content-Type","Value":"application/vnd.openxmlformats-officedocument.wordprocessingml.document"},{"Name":"ETag","Value":"\u0022Bib15oG10iAtPOJj55rpeJ/RSwKOZuyqlMiAqHe5Ts4=\u0022"},{"Name":"Last-Modified","Value":"Sun, 25 May 2025 20:06:09 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/final_backend_project/uploads/Документ Microsoft Word.uqceyfnuif.docx">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Документ Microsoft Word.docx'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"uqceyfnuif"},{"Name":"integrity","Value":"sha256-Bib15oG10iAtPOJj55rpeJ/RSwKOZuyqlMiAqHe5Ts4="},{"Name":"label","Value":"_content/final_backend_project/uploads/\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442 Microsoft Word.docx"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"41152"},{"Name":"Content-Type","Value":"application/vnd.openxmlformats-officedocument.wordprocessingml.document"},{"Name":"ETag","Value":"\u0022Bib15oG10iAtPOJj55rpeJ/RSwKOZuyqlMiAqHe5Ts4=\u0022"},{"Name":"Last-Modified","Value":"Thu, 22 May 2025 15:45:51 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"41152"},{"Name":"Content-Type","Value":"application/vnd.openxmlformats-officedocument.wordprocessingml.document"},{"Name":"ETag","Value":"\u0022Bib15oG10iAtPOJj55rpeJ/RSwKOZuyqlMiAqHe5Ts4=\u0022"},{"Name":"Last-Modified","Value":"Sun, 25 May 2025 20:06:09 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/final_backend_project/uploads/ИП-314,315,316,317.docx">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\ИП-314,315,316,317.docx'))</AssetFile>
@@ -191,6 +191,18 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-D4ooEcN149ToltD4anXG\u002BlV/v7GlNqSrUNGLohvhGyg="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"90320"},{"Name":"Content-Type","Value":"application/vnd.openxmlformats-officedocument.wordprocessingml.document"},{"Name":"ETag","Value":"\u0022D4ooEcN149ToltD4anXG\u002BlV/v7GlNqSrUNGLohvhGyg=\u0022"},{"Name":"Last-Modified","Value":"Thu, 22 May 2025 16:13:42 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/final_backend_project/uploads/отчет электротехника.docx">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\отчет электротехника.docx'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-QqAW5sg1TE9VmDn3glEpVZ64Irh9PyYHo4YCeSnWYU4="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"125553"},{"Name":"Content-Type","Value":"application/vnd.openxmlformats-officedocument.wordprocessingml.document"},{"Name":"ETag","Value":"\u0022QqAW5sg1TE9VmDn3glEpVZ64Irh9PyYHo4YCeSnWYU4=\u0022"},{"Name":"Last-Modified","Value":"Sun, 25 May 2025 21:07:49 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/final_backend_project/uploads/отчет электротехника.qq8kr39vry.docx">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\отчет электротехника.docx'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"qq8kr39vry"},{"Name":"integrity","Value":"sha256-QqAW5sg1TE9VmDn3glEpVZ64Irh9PyYHo4YCeSnWYU4="},{"Name":"label","Value":"_content/final_backend_project/uploads/\u043E\u0442\u0447\u0435\u0442 \u044D\u043B\u0435\u043A\u0442\u0440\u043E\u0442\u0435\u0445\u043D\u0438\u043A\u0430.docx"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"125553"},{"Name":"Content-Type","Value":"application/vnd.openxmlformats-officedocument.wordprocessingml.document"},{"Name":"ETag","Value":"\u0022QqAW5sg1TE9VmDn3glEpVZ64Irh9PyYHo4YCeSnWYU4=\u0022"},{"Name":"Last-Modified","Value":"Sun, 25 May 2025 21:07:49 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/final_backend_project/uploads/отчет12_электротехника_ИП316.docx">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\отчет12_электротехника_ИП316.docx'))</AssetFile>

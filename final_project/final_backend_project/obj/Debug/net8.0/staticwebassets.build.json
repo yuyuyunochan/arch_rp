@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "3OGzlLZ2fzX7up8WkYJvGC9u3PopWGPHTSTeiKuF1lE=",
+  "Hash": "nn2OKyJ9REZ8Wt9P5HbMeAJovX7J4rc+vjPo2k9HiZI=",
   "Source": "final_backend_project",
   "BasePath": "_content/final_backend_project",
   "Mode": "Default",
@@ -225,6 +225,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\Отчет по учебной практике Ларина В.И..docx"
+    },
+    {
+      "Identity": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\отчет электротехника.docx",
+      "SourceId": "final_backend_project",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\",
+      "BasePath": "_content/final_backend_project",
+      "RelativePath": "uploads/отчет электротехника#[.{fingerprint}]?.docx",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "qq8kr39vry",
+      "Integrity": "QqAW5sg1TE9VmDn3glEpVZ64Irh9PyYHo4YCeSnWYU4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\отчет электротехника.docx"
     },
     {
       "Identity": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\Отчет_Учебная_Практика.docx",
@@ -707,7 +728,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 22 May 2025 15:45:51 GMT"
+          "Value": "Sun, 25 May 2025 20:06:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -744,7 +765,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 22 May 2025 15:45:51 GMT"
+          "Value": "Sun, 25 May 2025 20:06:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1255,6 +1276,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-D4ooEcN149ToltD4anXG+lV/v7GlNqSrUNGLohvhGyg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/отчет электротехника.docx",
+      "AssetFile": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\отчет электротехника.docx",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "125553"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QqAW5sg1TE9VmDn3glEpVZ64Irh9PyYHo4YCeSnWYU4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 21:07:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QqAW5sg1TE9VmDn3glEpVZ64Irh9PyYHo4YCeSnWYU4="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/отчет электротехника.qq8kr39vry.docx",
+      "AssetFile": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\отчет электротехника.docx",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "125553"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QqAW5sg1TE9VmDn3glEpVZ64Irh9PyYHo4YCeSnWYU4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 21:07:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "qq8kr39vry"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/отчет электротехника.docx"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-QqAW5sg1TE9VmDn3glEpVZ64Irh9PyYHo4YCeSnWYU4="
         }
       ]
     },

@@ -69,9 +69,6 @@ const MyArticles = () => {
                 <div className="article-card">
                   <h4>{article.title}</h4>
                   <p>
-                    <strong>Автор:</strong> {article.author}
-                  </p>
-                  <p>
                     <strong>Дата создания:</strong>{" "}
                     {new Date(article.createdAt).toLocaleDateString()}
                   </p>
