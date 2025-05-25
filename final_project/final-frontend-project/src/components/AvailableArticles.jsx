@@ -36,7 +36,7 @@ const AvailableArticles = () => {
         }
       );
       alert("Статья успешно назначена вам.");
-      window.location.reload(); // Обновляем страницу после назначения
+      window.location.reload();
     } catch (error) {
       console.error(
         "Ошибка при назначении статьи:",

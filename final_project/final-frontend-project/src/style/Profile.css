@@ -42,8 +42,8 @@
 }
 
 .profile-info h1 {
-  font-size: 40px; /* Размер заголовка профиля */
-  margin-bottom: 10px; /* Отступ под заголовком */
+  font-size: 40px;
+  margin-bottom: 10px;
   text-align: left;
 }
 
@@ -179,15 +179,15 @@
 }
 .archived-review-item {
   list-style: none;
-  margin-bottom: 20px; /* Отступ между рецензиями */
+  margin-bottom: 20px;
 }
 
 .review-card {
   padding: 20px;
-  border: 1px solid #ccc; /* Граница вокруг карточки */
-  border-radius: 8px; /* Скругленные углы */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень для объема */
-  background-color: #f9f9f9; /* Фоновый цвет */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
 }
 
 .review-card h4 {

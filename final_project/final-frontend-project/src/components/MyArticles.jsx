@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
-import ReviewList from "./ReviewList"; // Компонент для отображения рецензий
+import ReviewList from "./ReviewList"; 
 import "../style/Profile.css";
 
 const MyArticles = () => {
@@ -38,7 +38,7 @@ const MyArticles = () => {
 
       const response = await axios.put(
         `http://localhost:5000/api/articles/${articleId}/update-status`,
-        { status: "Not Reviewed" }, // Только авторы могут отправлять на повторное рассмотрение
+        { status: "Not Reviewed" },
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -46,7 +46,7 @@ const MyArticles = () => {
 
       console.log(response.data);
       alert("Статья успешно отправлена на повторное рассмотрение.");
-      fetchArticles(); // Обновляем список статей
+      fetchArticles(); 
     } catch (error) {
       console.error(
         "Ошибка при повторной отправке статьи:",
@@ -59,8 +59,6 @@ const MyArticles = () => {
   return (
     <div className="my-articles">
       <h2>Мои статьи</h2>
-
-      {/* Блок: Мои статьи */}
       <section>
         {articles.length === 0 ? (
           <p>Нет статей.</p>
@@ -83,7 +81,6 @@ const MyArticles = () => {
                     </button>
                   )}
                 </div>
-                {/* Отображаем рецензии для данной статьи */}
                 <div className="review-section">
                   <ReviewList articleId={article.id} />
                 </div>

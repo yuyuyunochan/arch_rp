@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import ReviewForm from "./ReviewForm"; // Импортируем форму рецензии
+import ReviewForm from "./ReviewForm";
 
 const ActiveReviews = () => {
   const token = localStorage.getItem("token");
   const [articles, setArticles] = useState([]);
-  const [selectedArticleId, setSelectedArticleId] = useState(null); // ID выбранной статьи для рецензии
+  const [selectedArticleId, setSelectedArticleId] = useState(null);
 
   useEffect(() => {
     const fetchAssignedArticles = async () => {
@@ -47,8 +47,8 @@ const ActiveReviews = () => {
       );
 
       alert("Рецензия успешно отправлена.");
-      setSelectedArticleId(null); // Скрываем форму
-      window.location.reload(); // Обновляем страницу после отправки
+      setSelectedArticleId(null);
+      window.location.reload();
     } catch (error) {
       console.error(
         "Ошибка при отправке рецензии:",
@@ -86,12 +86,11 @@ const ActiveReviews = () => {
         </ul>
       )}
 
-      {/* Форма рецензии */}
       {selectedArticleId && (
         <ReviewForm
           articleId={selectedArticleId}
           onSubmit={handleSubmitReview}
-          onClose={() => setSelectedArticleId(null)} // Закрыть форму
+          onClose={() => setSelectedArticleId(null)}
         />
       )}
     </section>

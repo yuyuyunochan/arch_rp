@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import AvailableArticles from "./AvailableArticles"; // Компонент доступных статей
-import ActiveReviews from "./ActiveReviews"; // Компонент активных рецензий
-import ArchivedReviews from "./ArchivedReviews"; // Компонент архивных рецензий
-import MyArticles from "./MyArticles"; // Компонент моих статей
-import SubmitArticleForm from "./SubmitArticleForm"; // Форма отправки статьи
+import AvailableArticles from "./AvailableArticles";
+import ActiveReviews from "./ActiveReviews";
+import ArchivedReviews from "./ArchivedReviews";
+import MyArticles from "./MyArticles";
+import SubmitArticleForm from "./SubmitArticleForm";
 import "../style/Profile.css";
 
 const Profile = () => {
   const token = localStorage.getItem("token");
   const [user, setUser] = useState(null);
-  const [activeSection, setActiveSection] = useState("profile"); // Активная секция по умолчанию - "profile"
+  const [activeSection, setActiveSection] = useState("profile");
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -63,7 +63,6 @@ const Profile = () => {
 
   return (
     <div className="profile-container">
-      {/* Боковая панель */}
       <aside className="sidebar">
         <nav>
           <ul>
@@ -80,7 +79,6 @@ const Profile = () => {
         </nav>
       </aside>
 
-      {/* Основное содержимое */}
       <main className="main-content">
         {activeSection === "profile" && (
           <div className="profile-info">

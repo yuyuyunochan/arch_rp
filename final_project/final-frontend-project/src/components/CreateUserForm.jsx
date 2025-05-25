@@ -18,7 +18,6 @@ const CreateUserForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!/^[a-zA-Z0-9]+$/.test(formData.username)) {
-      // alert("Имя пользователя может содержать только буквы и цифры.");
       return;
     }
 

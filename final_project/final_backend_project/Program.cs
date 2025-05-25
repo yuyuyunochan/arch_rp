@@ -16,11 +16,9 @@ using final_backend_project.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Добавляем DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Добавляем Identity
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
     options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -34,13 +32,11 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 .AddEntityFrameworkStores<ApplicationDbContext>()
 .AddDefaultTokenProviders();
 
-// Настройка JWT аутентификации
 async Task InitializeRoles(IServiceProvider serviceProvider)
 {
     var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
     var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
 
-    // Создаём роли, если их нет
     string[] roleNames = { "Author", "Reviewer", "Admin" };
     foreach (var roleName in roleNames)
     {
@@ -50,7 +46,6 @@ async Task InitializeRoles(IServiceProvider serviceProvider)
         }
     }
 
-    // Создаём администратора, если его нет
     var adminEmail = "admin@example.com";
     var adminUser = await userManager.FindByEmailAsync(adminEmail);
 
@@ -66,12 +61,10 @@ async Task InitializeRoles(IServiceProvider serviceProvider)
         var result = await userManager.CreateAsync(adminUser, "AdminPassword123!");
         if (result.Succeeded)
         {
-            // Добавляем роль "Admin"
             await userManager.AddToRoleAsync(adminUser, "Admin");
         }
         else
         {
-            // Убедитесь, что администратор имеет роль "Admin"
             if (!await userManager.IsInRoleAsync(adminUser, "Admin"))
             {
                 await userManager.AddToRoleAsync(adminUser, "Admin");
@@ -98,10 +91,8 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// Добавляем контроллеры (если есть)
 builder.Services.AddControllers();
 
-// Включаем Swagger
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "final_backend_project", Version = "v1" });
@@ -110,7 +101,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigins", builder =>
     {
-        builder.WithOrigins("http://localhost:3000") // Разрешённый фронтенд
+        builder.WithOrigins("http://localhost:3000")
                .AllowAnyHeader()
                .AllowAnyMethod();
     });
@@ -129,17 +120,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "final_backend_project v1"));
 }
-
-// app.MapGet("/api/me", (HttpContext context) =>
-// {
-//     var userId = context.User.FindFirstValue(ClaimTypes.NameIdentifier);
-//     var userName = context.User.Identity?.Name;
-//     var role = context.User.FindFirstValue(ClaimTypes.Role);
-
-//     return Results.Ok(new { UserId = userId, UserName = userName, Role = role });
-// });
-
-// app.UseHttpsRedirection();
 app.UseRouting();
 
 app.UseAuthentication();
@@ -147,6 +127,6 @@ app.UseAuthorization();
 
 
 
-app.MapControllers(); // Если используете контроллеры
+app.MapControllers();
 
 app.Run();

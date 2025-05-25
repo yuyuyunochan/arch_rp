@@ -72,8 +72,6 @@ namespace final_backend_project.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
-
-            // ✅ Изменено: "Articles" → "AspNetArticles"
             migrationBuilder.CreateTable(
                 name: "AspNetArticles",
                 columns: table => new
@@ -181,7 +179,6 @@ namespace final_backend_project.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            // ✅ Изменено: "Reviews" → "AspNetReviews"
             migrationBuilder.CreateTable(
                 name: "AspNetReviews",
                 columns: table => new
@@ -210,7 +207,6 @@ namespace final_backend_project.Migrations
                         principalColumn: "Id");
                 });
 
-            // ✅ Изменены индексы и связи
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetArticles_AuthorId",
                 table: "AspNetArticles",

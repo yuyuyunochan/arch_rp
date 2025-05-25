@@ -45,7 +45,6 @@ const Register = () => {
     <div className="register-container">
       <h1>Регистрация</h1>
       <form onSubmit={handleSubmit}>
-        {/* Поле для имени пользователя */}
         <div>
           <label className="Username" htmlFor="username">
             Имя пользователя

@@ -22,7 +22,6 @@ namespace final_backend_project.Controllers
             _roleManager = roleManager;
         }
 
-        // Получить список всех пользователей
         [HttpGet("users")]
         public async Task<IActionResult> GetUsers()
         {
@@ -40,9 +39,8 @@ namespace final_backend_project.Controllers
             return Ok(users);
         }
 
-        // Создать нового пользователя
         [HttpPost("create-user")]
-        [Authorize(Roles = "Admin")] // Разрешаем доступ только администраторам
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateUser([FromBody] RegisterModel model)
         {
             if (model == null || string.IsNullOrEmpty(model.Email) || string.IsNullOrEmpty(model.Password))
@@ -54,7 +52,7 @@ namespace final_backend_project.Controllers
             {
                 UserName = model.Username,
                 Email = model.Email,
-                Role = model.Role // Убедитесь, что роль передается из модели
+                Role = model.Role
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);
@@ -64,7 +62,6 @@ namespace final_backend_project.Controllers
                 return BadRequest(new { Message = "Failed to create user.", Errors = result.Errors });
             }
 
-            // Назначение роли пользователю
             var roleResult = await _userManager.AddToRoleAsync(user, model.Role);
 
             if (!roleResult.Succeeded)
@@ -74,7 +71,6 @@ namespace final_backend_project.Controllers
 
             return Ok(new { Message = "User created successfully.", UserId = user.Id });
         }
-        // Удалить пользователя
         [HttpDelete("delete-user/{id}")]
         public async Task<IActionResult> DeleteUser(string id)
         {
@@ -94,7 +90,6 @@ namespace final_backend_project.Controllers
         }
 
 
-        // Заблокировать пользователя
         [HttpPost("block-user/{id}")]
         public async Task<IActionResult> BlockUser(string id)
         {
@@ -104,13 +99,12 @@ namespace final_backend_project.Controllers
                 return NotFound(new { Message = "User not found." });
             }
 
-            user.LockoutEnd = DateTimeOffset.UtcNow.AddYears(100); // Блокируем на 100 лет
+            user.LockoutEnd = DateTimeOffset.UtcNow.AddYears(100);
             await _userManager.UpdateAsync(user);
 
             return Ok(new { Message = "User blocked successfully." });
         }
 
-        // Разблокировать пользователя
         [HttpPost("unblock-user/{id}")]
         public async Task<IActionResult> UnblockUser(string id)
         {
@@ -120,7 +114,7 @@ namespace final_backend_project.Controllers
                 return NotFound(new { Message = "User not found." });
             }
 
-            user.LockoutEnd = null; // Снимаем блокировку
+            user.LockoutEnd = null;
             await _userManager.UpdateAsync(user);
 
             return Ok(new { Message = "User unblocked successfully." });
@@ -132,6 +126,6 @@ namespace final_backend_project.Controllers
         public string UserName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public string Role { get; set; } // Роль: "Author" или "Reviewer"
+        public string Role { get; set; }
     }
 }

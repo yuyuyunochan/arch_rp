@@ -30,8 +30,8 @@
 }
 
 .main-content {
-  flex: 1; /* Занимает оставшееся пространство */
-  padding: 20px; /* Поля вокруг контента */
+  flex: 1;
+  padding: 20px;
 }
 
 .profile-info h2 {

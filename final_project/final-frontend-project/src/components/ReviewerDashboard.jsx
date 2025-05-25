@@ -1,15 +1,14 @@
 import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
-import ReviewForm from "./ReviewForm"; // Импортируем форму рецензии
+import ReviewForm from "./ReviewForm";
 
 const ReviewerDashboard = () => {
   const token = localStorage.getItem("token");
   const [availableArticles, setAvailableArticles] = useState([]);
   const [activeArticles, setActiveArticles] = useState([]);
   const [archivedArticles, setArchivedArticles] = useState([]);
-  const [selectedArticleId, setSelectedArticleId] = useState(null); // ID выбранной статьи для рецензии
+  const [selectedArticleId, setSelectedArticleId] = useState(null);
 
-  // Загрузка доступных статей
   const fetchAvailableArticles = useCallback(async () => {
     try {
       const response = await axios.get(
@@ -49,7 +48,6 @@ const ReviewerDashboard = () => {
     }
   }, [token]);
 
-  // Назначить статью себе
   const handleAssign = async (id) => {
     try {
       await axios.post(
@@ -71,27 +69,24 @@ const ReviewerDashboard = () => {
     }
   };
 
-  // Отправка рецензии
 const handleSubmitReview = async (reviewData) => {
   try {
-    // Логируем отправляемые данные
     console.log("Отправляемые данные на сервер:", reviewData);
 
-    // Отправляем запрос
     await axios.post(
       `http://localhost:5000/api/articles/${selectedArticleId}/review`,
       reviewData,
       {
         headers: {
           Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json", // Указываем тип данных
+          "Content-Type": "application/json",
         },
       }
     );
 
     alert("Рецензия успешно отправлена.");
-    setSelectedArticleId(null); // Скрываем форму
-    fetchAssignedArticles(); // Обновляем список статей
+    setSelectedArticleId(null);
+    fetchAssignedArticles();
   } catch (error) {
     console.error(
       "Ошибка при отправке рецензии:",
@@ -100,7 +95,6 @@ const handleSubmitReview = async (reviewData) => {
     alert("Не удалось отправить рецензию.");
   }
 };
-  // Подключение данных после авторизации
   useEffect(() => {
     if (!token) {
       window.location.href = "/login";
@@ -113,8 +107,6 @@ const handleSubmitReview = async (reviewData) => {
   return (
     <div className="reviewer-dashboard">
       <h2>Панель рецензента</h2>
-
-      {/* Блок: Доступные статьи */}
       <section>
         <h3>Доступные статьи</h3>
         {availableArticles.length === 0 ? (
@@ -143,8 +135,6 @@ const handleSubmitReview = async (reviewData) => {
           </ul>
         )}
       </section>
-
-      {/* Блок: Активные статьи */}
       <section>
         <h3>Активные статьи</h3>
         {activeArticles.length === 0 ? (
@@ -165,27 +155,6 @@ const handleSubmitReview = async (reviewData) => {
                   <strong>Дата создания:</strong>{" "}
                   {new Date(article.createdAt).toLocaleDateString()}
                 </p>
-                {/* Кнопки изменения статуса */}
-                {/* <div>
-                  <button
-                    onClick={() =>
-                      handleUpdateStatus(article.id, "Under Revision")
-                    }
-                  >
-                    Отправить на доработку
-                  </button>
-                  <button
-                    onClick={() => handleUpdateStatus(article.id, "Accepted")}
-                  >
-                    Принять к публикации
-                  </button>
-                  <button
-                    onClick={() => handleUpdateStatus(article.id, "Rejected")}
-                  >
-                    Отклонить
-                  </button>
-                </div> */}
-                {/* Кнопка для открытия формы рецензии */}
                 <button onClick={() => setSelectedArticleId(article.id)}>
                   Написать рецензию
                 </button>
@@ -194,17 +163,13 @@ const handleSubmitReview = async (reviewData) => {
           </ul>
         )}
       </section>
-
-      {/* Форма рецензии */}
       {selectedArticleId && (
         <ReviewForm
           articleId={selectedArticleId}
           onSubmit={handleSubmitReview}
-          onClose={() => setSelectedArticleId(null)} // Закрыть форму
+          onClose={() => setSelectedArticleId(null)}
         />
       )}
-
-      {/* Блок: Архивные статьи */}
       <section>
         <h3>Архивные статьи</h3>
         {archivedArticles.length === 0 ? (

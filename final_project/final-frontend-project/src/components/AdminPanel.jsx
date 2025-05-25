@@ -8,13 +8,11 @@ const AdminPanel = () => {
   const [users, setUsers] = useState([]);
   const [admin, setAdmin] = useState([]);
   const [articles, setArticles] = useState([]);
-  const [activeSection, setActiveSection] = useState("profile"); // Активная секция по умолчанию - "profile"
+  const [activeSection, setActiveSection] = useState("profile");
 
-  // Загрузка данных
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Загрузка списка пользователей
         const usersResponse = await axios.get(
           "http://localhost:5000/api/users/all",
           {
@@ -23,7 +21,6 @@ const AdminPanel = () => {
         );
         setUsers(usersResponse.data);
 
-        // Загрузка данных администратора
         const adminResponse = await axios.get(
           "http://localhost:5000/api/users/me",
           {
@@ -32,7 +29,6 @@ const AdminPanel = () => {
         );
         setAdmin(adminResponse.data);
 
-        // Загрузка списка статей
         const articlesResponse = await axios.get(
           "http://localhost:5000/api/articles",
           {
@@ -56,10 +52,7 @@ const AdminPanel = () => {
     }
   }, [token]);
 
-  // Фильтруем пользователей, исключая администраторов
   const filteredUsers = users.filter((user) => user.userName !== "admin");
-
-  // Блокировка пользователя
   const blockUser = async (userId) => {
     try {
       await axios.post(
@@ -86,7 +79,6 @@ const AdminPanel = () => {
     }
   };
 
-  // Разблокировка пользователя
   const unblockUser = async (userId) => {
     try {
       await axios.post(
@@ -111,7 +103,6 @@ const AdminPanel = () => {
     }
   };
 
-  // Удаление пользователя
   const deleteUser = async (userId) => {
     try {
       await axios.delete(
@@ -131,7 +122,6 @@ const AdminPanel = () => {
     }
   };
 
-  // Удаление статьи
   const deleteArticle = async (id) => {
     try {
       await axios.delete(`http://localhost:5000/api/articles/${id}`, {
@@ -149,10 +139,7 @@ const AdminPanel = () => {
   };
 
   const handleLogout = () => {
-    // Удаляем токен из localStorage
     localStorage.removeItem("token");
-
-    // Перенаправляем на страницу входа
     window.location.href = "/login";
   };
 

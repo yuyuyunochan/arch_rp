@@ -7,7 +7,7 @@ using System.Security.Claims;
 using System.Text;
 using final_backend_project.Models;
 using Microsoft.Extensions.Configuration;
-using Microsoft.AspNetCore.Authorization; // Добавленная директива
+using Microsoft.AspNetCore.Authorization;
 using System.Threading.Tasks;
 
 namespace final_backend_project.Controllers
@@ -24,8 +24,6 @@ namespace final_backend_project.Controllers
             _userManager = userManager;
             _configuration = configuration;
         }
-
-        // Регистрация пользователя
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterModel model)
         {
@@ -38,14 +36,13 @@ namespace final_backend_project.Controllers
             {
                 UserName = model.Username,
                 Email = model.Email,
-                Role = model.Role // Сохраняем роль
+                Role = model.Role
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);
 
             if (result.Succeeded)
             {
-                // Добавляем пользователя в выбранную роль
                 await _userManager.AddToRoleAsync(user, model.Role);
 
                 return Ok(new { Message = "User registered successfully" });
@@ -54,7 +51,6 @@ namespace final_backend_project.Controllers
             return BadRequest(new { Errors = result.Errors });
         }
 
-        // Вход пользователя
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
@@ -65,7 +61,6 @@ namespace final_backend_project.Controllers
                 return Unauthorized(new { Message = "Invalid username or password" });
             }
 
-            // Убираем проверку на блокировку
             var token = GenerateJwtToken(user);
             return Ok(new { Token = token });
         }
@@ -84,13 +79,8 @@ namespace final_backend_project.Controllers
                 return NotFound(new { Message = "User not found" });
             }
 
-            // Проверяем, заблокирован ли пользователь
             bool isBlocked = user.LockoutEnd != null && user.LockoutEnd > DateTimeOffset.UtcNow;
-
-            // Получаем роли пользователя
             var roles = await _userManager.GetRolesAsync(user);
-
-            // Если пользователь администратор, возвращаем список всех пользователей
             if (roles.Contains("Admin"))
             {
                 var allUsers = await _userManager.Users.Select(u => new
@@ -107,24 +97,22 @@ namespace final_backend_project.Controllers
                     Email = user.Email,
                     Role = roles.FirstOrDefault(),
                     IsAdmin = true,
-                    IsBlocked = false, // Администратор не может быть заблокирован
+                    IsBlocked = false,
                     Users = allUsers
                 });
             }
 
-            // Если пользователь не администратор, возвращаем только его данные
             return Ok(new
             {
                 Username = user.UserName,
                 Email = user.Email,
                 Role = roles.FirstOrDefault(),
                 IsAdmin = false,
-                IsBlocked = isBlocked // Добавляем флаг блокировки
+                IsBlocked = isBlocked
             });
         }
-        // Получение всех пользователей (доступно только администратору)
         [HttpGet("all")]
-        [Authorize(Roles = "Admin")] // Теперь работает
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllUsers()
         {
             var users = await _userManager.Users.ToListAsync();
@@ -138,9 +126,8 @@ namespace final_backend_project.Controllers
             }));
         }
 
-        // Блокировка пользователя (доступно только администратору)
         [HttpPost("{userId}/block")]
-        [Authorize(Roles = "Admin")] // Теперь работает
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> BlockUser(string userId)
         {
             var user = await _userManager.FindByIdAsync(userId);
@@ -149,15 +136,14 @@ namespace final_backend_project.Controllers
                 return NotFound(new { Message = "User not found" });
             }
 
-            user.LockoutEnd = DateTimeOffset.UtcNow.AddYears(100); // Блокируем на 100 лет
+            user.LockoutEnd = DateTimeOffset.UtcNow.AddYears(100);
             await _userManager.UpdateAsync(user);
 
             return Ok(new { Message = "User blocked successfully" });
         }
 
-        // Разблокировка пользователя (доступно только администратору)
         [HttpPost("{userId}/unblock")]
-        [Authorize(Roles = "Admin")] // Теперь работает
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UnblockUser(string userId)
         {
             var user = await _userManager.FindByIdAsync(userId);
@@ -166,13 +152,11 @@ namespace final_backend_project.Controllers
                 return NotFound(new { Message = "User not found" });
             }
 
-            user.LockoutEnd = null; // Снимаем блокировку
+            user.LockoutEnd = null;
             await _userManager.UpdateAsync(user);
 
             return Ok(new { Message = "User unblocked successfully" });
         }
-
-        // Генерация JWT-токена
         private string GenerateJwtToken(ApplicationUser user)
         {
             var claims = new List<Claim>
@@ -202,14 +186,6 @@ namespace final_backend_project.Controllers
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
-
-    // public class RegisterModel
-    // {
-    //     public string Username { get; set; }
-    //     public string Email { get; set; }
-    //     public string Password { get; set; }
-    // }
-
     public class LoginModel
     {
         public string Username { get; set; }

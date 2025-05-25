@@ -27,8 +27,6 @@ const SubmitArticleForm = () => {
       formDataToSend.append("title", formData.title);
       formDataToSend.append("file", formData.file);
       formDataToSend.append("content", formData.content);
-
-      // Отправляем данные на сервер
       const response = await axios.post(
         "http://localhost:5000/api/articles",
         formDataToSend,
@@ -69,8 +67,6 @@ const SubmitArticleForm = () => {
             required
           />
         </div>
-
-        {/* Загрузка файла */}
         <div>
           <h3 htmlFor="file">Выберите файл статьи (PDF, DOCX)</h3>
           <input
@@ -82,8 +78,6 @@ const SubmitArticleForm = () => {
             required
           />
         </div>
-
-        {/* Редактор содержимого */}
         <div>
                     <h3 htmlFor="content">Содержание статьи</h3>
                     <textarea

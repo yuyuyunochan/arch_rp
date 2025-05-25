@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client'; // Для новых проектов
+import ReactDOM from 'react-dom/client';
 import App from './App';
 import "./global.css"
 
