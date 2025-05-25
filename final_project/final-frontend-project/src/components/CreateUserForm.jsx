@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "../style/Admin.css"
 
 const CreateUserForm = () => {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
     password: "",
-    role: "Author", // По умолчанию выбрана роль Author
+    role: "Author",
   });
 
   const handleInputChange = (e) => {
@@ -16,14 +17,12 @@ const CreateUserForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Проверка имени пользователя
     if (!/^[a-zA-Z0-9]+$/.test(formData.username)) {
-      alert("Имя пользователя может содержать только буквы и цифры.");
+      // alert("Имя пользователя может содержать только буквы и цифры.");
       return;
     }
 
-    console.log("Отправляемые данные:", formData); // Логируем данные
+    console.log("Отправляемые данные:", formData); 
 
     try {
       const response = await axios.post(
@@ -48,9 +47,8 @@ const CreateUserForm = () => {
     <div className="create-user-form">
       <h2>Создать нового пользователя</h2>
       <form onSubmit={handleSubmit}>
-        {/* Поле для имени пользователя */}
         <div>
-          <label htmlFor="username">Имя пользователя</label>
+          <label className="New-Username" htmlFor="username">Имя пользователя</label>
           <input
             type="text"
             id="username"
@@ -61,10 +59,8 @@ const CreateUserForm = () => {
             required
           />
         </div>
-
-        {/* Поле для email */}
         <div>
-          <label htmlFor="email">Email</label>
+          <label className="New-Email" htmlFor="email">Email</label>
           <input
             type="email"
             id="email"
@@ -75,10 +71,8 @@ const CreateUserForm = () => {
             required
           />
         </div>
-
-        {/* Поле для пароля */}
         <div>
-          <label htmlFor="password">Пароль</label>
+          <label className="New-Password" htmlFor="password">Пароль</label>
           <input
             type="password"
             id="password"
@@ -89,11 +83,9 @@ const CreateUserForm = () => {
             required
           />
         </div>
-
-        {/* Выбор роли */}
         <div>
           <label htmlFor="role">Роль</label>
-          <select
+          <select className="New-Role"
             id="role"
             name="role"
             value={formData.role}
@@ -104,8 +96,6 @@ const CreateUserForm = () => {
             <option value="Reviewer">Рецензент</option>
           </select>
         </div>
-
-        {/* Кнопка создания */}
         <button type="submit">Создать пользователя</button>
       </form>
     </div>

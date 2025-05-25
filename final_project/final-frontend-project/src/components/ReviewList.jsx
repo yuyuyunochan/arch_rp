@@ -14,7 +14,7 @@ const ReviewList = ({ articleId }) => {
             headers: { Authorization: `Bearer ${token}` },
           }
         );
-        console.log("Ответ от сервера:", response.data); // Проверяем данные
+        console.log("Ответ от сервера:", response.data);
         setReviews(response.data);
       } catch (error) {
         console.error(
@@ -28,9 +28,6 @@ const ReviewList = ({ articleId }) => {
       fetchReviews();
     }
   }, [articleId, token]);
-
-  // Отображаем только первую рецензию
-
   return (
     <div>
       <h2>Рецензии на статью</h2>
@@ -58,7 +55,7 @@ const ReviewList = ({ articleId }) => {
           </li>
         </div>
       ) : (
-        <p>Нет рецензий.</p>
+        <p>Нет рецензий</p>
       )}
     </div>
   );

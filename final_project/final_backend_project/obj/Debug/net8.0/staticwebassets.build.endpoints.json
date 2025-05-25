@@ -577,6 +577,88 @@
       ]
     },
     {
+      "Route": "uploads/pr04.65imxl3cvc.pdf",
+      "AssetFile": "uploads/pr04.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "130329"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ppXb+oA4VcbHq/rLHfL5s55dBBMBaqH2GeI2FXtGugg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 24 May 2025 12:44:16 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "65imxl3cvc"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ppXb+oA4VcbHq/rLHfL5s55dBBMBaqH2GeI2FXtGugg="
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/pr04.pdf"
+        }
+      ]
+    },
+    {
+      "Route": "uploads/pr04.pdf",
+      "AssetFile": "uploads/pr04.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "130329"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ppXb+oA4VcbHq/rLHfL5s55dBBMBaqH2GeI2FXtGugg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 24 May 2025 12:44:16 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ppXb+oA4VcbHq/rLHfL5s55dBBMBaqH2GeI2FXtGugg="
+        }
+      ]
+    },
+    {
       "Route": "uploads/pr06.dlygwk5088.pdf",
       "AssetFile": "uploads/pr06.pdf",
       "Selectors": [],
@@ -767,7 +849,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 23 May 2025 13:34:22 GMT"
+          "Value": "Sat, 24 May 2025 15:45:49 GMT"
         }
       ],
       "EndpointProperties": [
@@ -804,7 +886,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 23 May 2025 13:34:22 GMT"
+          "Value": "Sat, 24 May 2025 15:45:49 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1505,7 +1587,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 24 May 2025 08:55:47 GMT"
+          "Value": "Sat, 24 May 2025 15:42:15 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1542,7 +1624,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 24 May 2025 08:55:47 GMT"
+          "Value": "Sat, 24 May 2025 15:42:15 GMT"
         }
       ],
       "EndpointProperties": [

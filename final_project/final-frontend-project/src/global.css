@@ -3,9 +3,12 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-image: linear-gradient(rgb(201, 223, 241), rgb(241, 173, 213));
+      background:
+    linear-gradient(217deg, rgba(197, 200, 214, 0.8), rgba(255, 0, 0, 0) 70.71%),
+    linear-gradient(127deg, rgba(108, 152, 219, 0.8), rgba(0, 255, 0, 0) 70.71%),
+    linear-gradient(336deg, rgba(46, 110, 230, 0.8), rgba(0, 0, 255, 0) 70.71%);
+
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Фиксированный фон */
-    min-height: 100vh;
+    background-attachment: fixed;
 }

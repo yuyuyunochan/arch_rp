@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../style/Profile.css"
 
 const ReviewForm = ({ articleId, onSubmit, onClose }) => {
   const [formData, setFormData] = useState({
@@ -8,7 +9,7 @@ const ReviewForm = ({ articleId, onSubmit, onClose }) => {
     PresentationQuality: "",
     AdditionalComments: "",
     ConfidentialCommentsToEditor: "",
-    Status: "Under Revision", // Начальное значение по умолчанию
+    Status: "Under Revision",
   });
 
   const handleChange = (e) => {
@@ -16,9 +17,15 @@ const ReviewForm = ({ articleId, onSubmit, onClose }) => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(formData); // Отправляем данные на сервер
+
+    if (!articleId) {
+      console.error('Article ID is missing in ReviewForm');
+      return;
+    }
+
+    onSubmit(formData, articleId);
   };
 
   return (
@@ -26,7 +33,6 @@ const ReviewForm = ({ articleId, onSubmit, onClose }) => {
       <div className="review-form">
         <h2>Написать рецензию</h2>
         <form onSubmit={handleSubmit}>
-          {/* Выпадающий список для выбора статуса */}
           <div>
             <label>
               <strong>Статус статьи:</strong>
@@ -43,8 +49,7 @@ const ReviewForm = ({ articleId, onSubmit, onClose }) => {
             </select>
           </div>
 
-          {/* Рекомендация */}
-          <div>
+          <div className="Recommendation">
             <label>
               <strong>Рекомендация:</strong>
             </label>
@@ -57,10 +62,9 @@ const ReviewForm = ({ articleId, onSubmit, onClose }) => {
             />
           </div>
 
-          {/* Техническая ценность */}
-          <div>
+          <div className="Technical">
             <label>
-              <strong>Техническая ценность:</strong>
+              <strong >Техническая ценность:</strong>
             </label>
             <input
               type="text"
@@ -71,10 +75,9 @@ const ReviewForm = ({ articleId, onSubmit, onClose }) => {
             />
           </div>
 
-          {/* Оригинальность */}
-          <div>
+          <div className="Origin">
             <label>
-              <strong>Оригинальность:</strong>
+              <strong >Оригинальность:</strong>
             </label>
             <input
               type="text"
@@ -85,10 +88,9 @@ const ReviewForm = ({ articleId, onSubmit, onClose }) => {
             />
           </div>
 
-          {/* Качество презентации */}
-          <div>
+          <div className="Quality">
             <label>
-              <strong>Качество презентации:</strong>
+              <strong >Качество презентации:</strong>
             </label>
             <input
               type="text"
@@ -99,10 +101,9 @@ const ReviewForm = ({ articleId, onSubmit, onClose }) => {
             />
           </div>
 
-          {/* Дополнительные комментарии */}
-          <div>
+          <div className="DopComm">
             <label>
-              <strong>Дополнительные комментарии:</strong>
+              <strong >Дополнительные комментарии:</strong>
             </label>
             <textarea
               name="AdditionalComments"
@@ -110,11 +111,9 @@ const ReviewForm = ({ articleId, onSubmit, onClose }) => {
               onChange={handleChange}
             />
           </div>
-
-          {/* Конфиденциальные комментарии редактору */}
-          <div>
+          <div className="ConfComm">
             <label>
-              <strong>Конфиденциальные комментарии редактору:</strong>
+              <strong >Конфиденциальные комментарии редактору:</strong>
             </label>
             <textarea
               name="ConfidentialCommentsToEditor"
@@ -123,10 +122,9 @@ const ReviewForm = ({ articleId, onSubmit, onClose }) => {
             />
           </div>
 
-          {/* Кнопки действий */}
           <div style={{ marginTop: "16px" }}>
-            <button type="submit">Отправить рецензию</button>
-            <button type="button" onClick={onClose}>
+            <button className="but-review" type="submit">Отправить рецензию</button>
+            <button className="but-review" type="button" onClick={onClose}>
               Отмена
             </button>
           </div>

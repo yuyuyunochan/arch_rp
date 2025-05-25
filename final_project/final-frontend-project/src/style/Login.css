@@ -1,0 +1,14 @@
+* {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.LoginWelcome {
+  border:none;
+  border-radius:205px;
+  padding: 10px;
+  inline-size: 1000px;
+  text-align: center;
+  margin-left: 25%;
+}
+.container, input {
+    text-align: center;
+}

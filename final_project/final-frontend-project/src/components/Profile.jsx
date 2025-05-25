@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import MyArticles from "./MyArticles";
-import ReviewerDashboard from "./ReviewerDashboard";
-import SubmitArticleForm from "./SubmitArticleForm"
+import AvailableArticles from "./AvailableArticles"; // Компонент доступных статей
+import ActiveReviews from "./ActiveReviews"; // Компонент активных рецензий
+import ArchivedReviews from "./ArchivedReviews"; // Компонент архивных рецензий
+import MyArticles from "./MyArticles"; // Компонент моих статей
+import SubmitArticleForm from "./SubmitArticleForm"; // Форма отправки статьи
+import "../style/Profile.css";
 
 const Profile = () => {
   const token = localStorage.getItem("token");
   const [user, setUser] = useState(null);
+  const [activeSection, setActiveSection] = useState("profile"); // Активная секция по умолчанию - "profile"
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -32,10 +36,7 @@ const Profile = () => {
   }, [token]);
 
   const handleLogout = () => {
-    // Удаляем токен из localStorage
     localStorage.removeItem("token");
-
-    // Перенаправляем на страницу входа
     window.location.href = "/login";
   };
 
@@ -43,36 +44,76 @@ const Profile = () => {
     return <p>Загрузка...</p>;
   }
 
+  const sections = [
+    { name: "Профиль", key: "profile" },
+    ...(user.role === "Reviewer"
+      ? [
+          { name: "Доступные статьи", key: "available-articles" },
+          { name: "Активные рецензии", key: "active-reviews" },
+          { name: "Архив рецензий", key: "archived-reviews" },
+        ]
+      : []),
+    ...(user.role === "Author"
+      ? [
+          { name: "Мои статьи", key: "my-articles" },
+          { name: "Отправить статью", key: "submit-article" },
+        ]
+      : []),
+  ];
+
   return (
     <div className="profile-container">
-      <h1>Личный кабинет</h1>
-      <div className="profile-info">
-        <p>
-          <strong>Имя пользователя:</strong> {user.username}
-        </p>
-        <p>
-          <strong>Email:</strong> {user.email}
-        </p>
-        <p>
-          <strong>Роль:</strong> {user.role}
-        </p>
-        {user.isBlocked && (
-          <p style={{ color: "red" }}>Ваш аккаунт заблокирован.</p>
+      {/* Боковая панель */}
+      <aside className="sidebar">
+        <nav>
+          <ul>
+            {sections.map((section) => (
+              <li
+                key={section.key}
+                className={activeSection === section.key ? "active" : ""}
+                onClick={() => setActiveSection(section.key)}
+              >
+                {section.name}
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </aside>
+
+      {/* Основное содержимое */}
+      <main className="main-content">
+        {activeSection === "profile" && (
+          <div className="profile-info">
+            <h1>{user.username}</h1>
+            <p>
+              <strong>Email:</strong> {user.email}
+            </p>
+            <p>
+              <strong>Роль:</strong> {user.role}
+            </p>
+            {user.isBlocked && (
+              <p style={{ color: "red" }}>Ваш аккаунт заблокирован.</p>
+            )}
+          </div>
         )}
-      </div>
-      {!user.isBlocked && user.role === "Author" && (
-        <div>
-          <h2>Добавить статью</h2>
+        {activeSection === "available-articles" && user.role === "Reviewer" && (
+          <AvailableArticles />
+        )}
+        {activeSection === "active-reviews" && user.role === "Reviewer" && (
+          <ActiveReviews />
+        )}
+        {activeSection === "archived-reviews" && user.role === "Reviewer" && (
+          <ArchivedReviews />
+        )}
+        {activeSection === "my-articles" && user.role === "Author" && (
+          <MyArticles />
+        )}
+        {activeSection === "submit-article" && user.role === "Author" && (
           <SubmitArticleForm />
-        </div>
-      )}
-      {user.role === "Author" && !user.isBlocked && <MyArticles />}
-      {user.role === "Reviewer" && !user.isBlocked && <ReviewerDashboard />}
+        )}
+      </main>
 
-      {/* Список статей
-      {!user.isBlocked && user.role === "Author" && <MyArticles />} */}
-
-      <button onClick={handleLogout}>Выйти</button>
+      <button className="logout" onClick={handleLogout}>Выйти</button>
     </div>
   );
 };

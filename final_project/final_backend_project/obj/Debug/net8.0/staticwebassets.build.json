@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bQGR2nK18UQqfOCpCIOEBCzIe8ExDNJd4DHuNmFvVxU=",
+  "Hash": "3OGzlLZ2fzX7up8WkYJvGC9u3PopWGPHTSTeiKuF1lE=",
   "Source": "final_backend_project",
   "BasePath": "_content/final_backend_project",
   "Mode": "Default",
@@ -395,6 +395,27 @@
       "OriginalItemSpec": "wwwroot\\uploads\\pr03.docx"
     },
     {
+      "Identity": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\pr04.pdf",
+      "SourceId": "final_backend_project",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\",
+      "BasePath": "_content/final_backend_project",
+      "RelativePath": "uploads/pr04#[.{fingerprint}]?.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "65imxl3cvc",
+      "Integrity": "ppXb+oA4VcbHq/rLHfL5s55dBBMBaqH2GeI2FXtGugg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\pr04.pdf"
+    },
+    {
       "Identity": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\pr06.pdf",
       "SourceId": "final_backend_project",
       "SourceType": "Discovered",
@@ -768,7 +789,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 23 May 2025 13:34:22 GMT"
+          "Value": "Sat, 24 May 2025 15:45:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -805,7 +826,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 23 May 2025 13:34:22 GMT"
+          "Value": "Sat, 24 May 2025 15:45:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1342,7 +1363,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 24 May 2025 08:55:47 GMT"
+          "Value": "Sat, 24 May 2025 15:42:15 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1379,7 +1400,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 24 May 2025 08:55:47 GMT"
+          "Value": "Sat, 24 May 2025 15:42:15 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1890,6 +1911,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-2NtJl4+iEIF8Fz022DM7GD0oI6hz15QhOahleLV6M70="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/pr04.65imxl3cvc.pdf",
+      "AssetFile": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\pr04.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "130329"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ppXb+oA4VcbHq/rLHfL5s55dBBMBaqH2GeI2FXtGugg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 24 May 2025 12:44:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "65imxl3cvc"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/pr04.pdf"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ppXb+oA4VcbHq/rLHfL5s55dBBMBaqH2GeI2FXtGugg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/pr04.pdf",
+      "AssetFile": "C:\\Users\\Юка\\Desktop\\visual-programming\\final_project\\final_backend_project\\wwwroot\\uploads\\pr04.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "130329"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ppXb+oA4VcbHq/rLHfL5s55dBBMBaqH2GeI2FXtGugg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 24 May 2025 12:44:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ppXb+oA4VcbHq/rLHfL5s55dBBMBaqH2GeI2FXtGugg="
         }
       ]
     },

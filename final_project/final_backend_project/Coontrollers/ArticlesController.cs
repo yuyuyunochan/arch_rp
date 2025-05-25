@@ -90,7 +90,7 @@ namespace final_backend_project.Controllers
 
             // Активные статьи
             var activeArticles = await _context.AspNetArticles
-                .Where(a => a.ReviewerId == userId && (a.Status == "Under Review" || a.Status == "Under Revision"))
+                .Where(a => a.ReviewerId == userId && (a.Status == "Under Review"))
                 .Select(a => new
                 {
                     a.Id,
@@ -120,7 +120,6 @@ namespace final_backend_project.Controllers
                 ArchivedArticles = archivedArticles
             });
         }
-
         [HttpGet("available-for-review")]
         [Authorize(Roles = "Reviewer")]
         public async Task<IActionResult> GetAvailableArticlesForReview()
@@ -176,7 +175,15 @@ namespace final_backend_project.Controllers
             _context.AspNetReviews.Add(review);
 
             // Обновляем статус статьи
-            article.Status = reviewData.Status;
+            if (reviewData.Status == "Under Revision")
+            {
+                article.Status = "Under Revision";
+                article.ReviewerId = null; // Освобождаем рецензента
+            }
+            else
+            {
+                article.Status = reviewData.Status;
+            }
 
             await _context.SaveChangesAsync();
 
@@ -230,32 +237,54 @@ namespace final_backend_project.Controllers
             return Ok(review);
         }
         [HttpPut("{id}/update-status")]
-        [Authorize(Roles = "Reviewer")]
+        [Authorize(Roles = "Author,Reviewer")] // Разрешаем доступ только авторам и рецензентам
         public async Task<IActionResult> UpdateArticleStatus(int id, [FromBody] UpdateArticleStatusRequest request)
         {
             var article = await _context.AspNetArticles.FindAsync(id);
             if (article == null)
             {
-                return NotFound(new { Message = "Article not found" });
+                return NotFound(new { Message = "Статья не найдена." });
             }
 
-            // Проверяем, что статья принадлежит текущему рецензенту
+            // Получаем ID текущего пользователя
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (article.ReviewerId != userId)
+            if (userId == null)
             {
-                return Forbid();
+                return Unauthorized(new { Message = "Пользователь не авторизован." });
             }
 
+            // Получаем роль текущего пользователя
+            var userRole = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+
+            // Проверяем права доступа
+            if (userRole == "Author" && article.AuthorId != userId)
+            {
+                return Forbid ("Вы не являетесь автором этой статьи.");
+            }
+
+            if (userRole == "Reviewer" && article.ReviewerId != userId)
+            {
+                return Forbid("Вы не назначены рецензентом для этой статьи." );
+            }
+
+            // Ограничения для авторов
+            if (userRole == "Author" && !new[] { "Not Reviewed" }.Contains(request.Status))
+            {
+                return BadRequest("Авторы могут только отправлять статью на повторное рассмотрение.");
+            }
+
+            // Ограничения для рецензентов
+            if (userRole == "Reviewer" && !new[] { "Under Revision", "Accepted", "Rejected" }.Contains(request.Status))
+            {
+                return BadRequest("Недопустимый статус для рецензента.");
+            }
+
+            // Обновляем статус статьи
             article.Status = request.Status;
             await _context.SaveChangesAsync();
 
-            return Ok(new { Message = "Article status updated successfully", ArticleId = article.Id });
+            return Ok(new { Message = "Статус статьи успешно обновлен.", ArticleId = article.Id });
         }
-
-        // public class UpdateArticleStatusRequest
-        // {
-        //     public string Status { get; set; }
-        // }
         [HttpDelete("{id}")]
         [Authorize(Roles = "Admin")] // Разрешаем доступ только администраторам
         public async Task<IActionResult> DeleteArticle(int id)
@@ -316,7 +345,7 @@ namespace final_backend_project.Controllers
             return Ok(new { Message = "Article created successfully", ArticleId = article.Id });
         }
         [HttpGet("my-articles")]
-        [Authorize(Roles = "Author")] // Разрешаем доступ только авторам
+        [Authorize(Roles = "Author")]
         public async Task<IActionResult> GetMyArticles()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -325,19 +354,15 @@ namespace final_backend_project.Controllers
                 return Unauthorized(new { Message = "User is not authenticated" });
             }
 
-            // Получаем только статьи, принадлежащие текущему пользователю
             var articles = await _context.AspNetArticles
-                .Where(a => a.AuthorId == userId) // Фильтруем по AuthorId
-                .Include(a => a.Author) // Загружаем связанных авторов
-                .Include(a => a.Reviewer) // Загружаем связанных рецензентов
+                .Where(a => a.AuthorId == userId)
                 .Select(a => new
                 {
                     a.Id,
                     a.Title,
                     a.Status,
                     a.CreatedAt,
-                    AuthorName = a.Author.UserName ?? "Неизвестный автор", // Имя автора
-                    ReviewerName = a.Reviewer.UserName ?? "Не назначен" // Имя рецензента
+                    ReviewerName = a.Reviewer.UserName ?? "Не назначен"
                 })
                 .ToListAsync();
 

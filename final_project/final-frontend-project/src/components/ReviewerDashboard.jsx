@@ -26,30 +26,6 @@ const ReviewerDashboard = () => {
       );
     }
   }, [token]);
-  // const handleUpdateStatus = async (id, status) => {
-  //   try {
-  //     await axios.put(
-  //       `http://localhost:5000/api/articles/${id}/update-status`,
-  //       { status }, // Отправляем объект
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer ${token}`,
-  //           "Content-Type": "application/json", // Явно указываем тип данных
-  //         },
-  //       }
-  //     );
-  //     alert("Статус статьи успешно обновлен.");
-  //     fetchAssignedArticles(); // Обновляем список статей
-  //   } catch (error) {
-  //     console.error(
-  //       "Ошибка при обновлении статуса:",
-  //       error.response?.data || error.message
-  //     );
-  //     alert("Не удалось обновить статус статьи.");
-  //   }
-  // };
-
-  // Загрузка назначенных статей
   const fetchAssignedArticles = useCallback(async () => {
     try {
       const response = await axios.get(

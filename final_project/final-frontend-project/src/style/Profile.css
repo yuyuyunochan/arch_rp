@@ -1,0 +1,206 @@
+.all {
+  background-color: rgb(255, 255, 255);
+}
+
+.profile-container {
+  display: flex;
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #a9bed6;
+  padding: 20px;
+  height: 100vh;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar nav ul li {
+  margin: 15px 0;
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+}
+
+.logout {
+  margin-right: 5%;
+}
+.sidebar nav ul li.active {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.main-content {
+  flex: 1;
+  height: 100vh;
+  overflow-y: auto; 
+}
+
+.profile-info h1 {
+  font-size: 40px; /* Размер заголовка профиля */
+  margin-bottom: 10px; /* Отступ под заголовком */
+  text-align: left;
+}
+
+.profile-info p {
+  font-size: 30px;
+  margin: 30px 0;
+  text-align: left;
+}
+.my-articles {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.article-item {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.article-card {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+.review-section {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px dashed #ccc;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+}
+
+.review-section h5 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.article-card h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.article-card p {
+  margin: 5px 0;
+}
+
+.article-card button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.article-card button:hover {
+  background-color: #0056b3;
+}
+.active-articles h3,
+.Archive h3,
+.Avaliable h3 {
+  font-size: 200%;
+  text-align: center;
+  text-decoration: underline;
+  text-decoration-color: rgb(76, 32, 117);
+}
+.active-articles h4,
+.Avaliable h4 {
+  font-size: 150%;
+  font-style: italic;
+}
+.submit-article-form h3 {
+  text-align: left;
+}
+.submit-article-form input {
+  text-align: center;
+}
+.submit-article-form textarea {
+  width: 1000px;
+  height: 100px;
+}
+.active-articles button {
+  margin: 0;
+}
+.to-review {
+  margin-top: 5%;
+}
+.review-form-overlay label {
+  font-size: 110%;
+}
+.review-form-overlay form div {
+  margin-bottom: 20px;
+}
+.review-form-overlay textarea {
+  width: 300px;
+  height: 50px;
+}
+.review-form-overlay input {
+  height: 60px;
+  width: 300px;
+}
+.review-form-overlay select {
+  padding: 0.5rem 1rem;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  box-sizing: border-box;
+  border-color: #000000;
+  width: 250px;
+  height: 50px;
+  border-radius: 15px;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+.Recommendation label {
+  margin-right: 85px;
+}
+.Technical label {
+  margin-right: 27px;
+}
+.Origin label {
+  margin-right: 75px;
+}
+.Quality label {
+  margin-right: 25px;
+}
+.DopComm label {
+  margin-right: 208px;
+}
+.archived-review-item {
+  list-style: none;
+  margin-bottom: 20px; /* Отступ между рецензиями */
+}
+
+.review-card {
+  padding: 20px;
+  border: 1px solid #ccc; /* Граница вокруг карточки */
+  border-radius: 8px; /* Скругленные углы */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень для объема */
+  background-color: #f9f9f9; /* Фоновый цвет */
+}
+
+.review-card h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.review-card p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.review-card strong {
+  font-weight: bold;
+}

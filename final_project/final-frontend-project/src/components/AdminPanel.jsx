@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import CreateUserForm from "./CreateUserForm";
 import axios from "axios";
+import "../style/Admin.css"
 
 const AdminPanel = () => {
   const token = localStorage.getItem("token");
   const [users, setUsers] = useState([]);
   const [admin, setAdmin] = useState([]);
   const [articles, setArticles] = useState([]);
+  const [activeSection, setActiveSection] = useState("profile"); // Активная секция по умолчанию - "profile"
 
   // Загрузка данных
   useEffect(() => {
@@ -111,7 +113,6 @@ const AdminPanel = () => {
 
   // Удаление пользователя
   const deleteUser = async (userId) => {
-
     try {
       await axios.delete(
         `http://localhost:5000/api/admin/delete-user/${userId}`,
@@ -130,39 +131,14 @@ const AdminPanel = () => {
     }
   };
 
-  // // Создание нового пользователя
-  // const createUser = async (event) => {
-  //   event.preventDefault();
-  //   const formData = new FormData(event.target);
-  //   const data = {
-  //     userName: formData.get("username"),
-  //     email: formData.get("email"),
-  //     password: formData.get("password"),
-  //     role: formData.get("role"),
-  //   };
-    
-
-  //   try {
-  //     await axios.post("http://localhost:5000/api/admin/create-user", data, {
-  //       headers: { Authorization: `Bearer ${token}` },
-  //     });
-  //     console.log("Пользователь успешно создан.");
-  //     window.location.reload(); // Обновляем страницу
-  //   } catch (error) {
-  //     console.error(
-  //       "Ошибка при создании пользователя:",
-  //       error.response?.data || error.message
-  //     );
-  //     console.log("Не удалось создать пользователя.");
-  //   }
-  // };
+  // Удаление статьи
   const deleteArticle = async (id) => {
     try {
       await axios.delete(`http://localhost:5000/api/articles/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setArticles(articles.filter((article) => article.id !== id));
-      // console.log("Статья успешно удалена.");
+      console.log("Статья успешно удалена.");
     } catch (error) {
       console.error(
         "Ошибка при удалении статьи:",
@@ -182,92 +158,127 @@ const AdminPanel = () => {
 
   return (
     <div className="admin-panel">
-      <h1>Панель администратора</h1>
+      <aside className="sidebar">
+        <nav>
+          <ul>
+            <li
+              className={activeSection === "profile" ? "active" : ""}
+              onClick={() => setActiveSection("profile")}
+            >
+              Панель администратора
+            </li>
+            <li
+              className={activeSection === "user-management" ? "active" : ""}
+              onClick={() => setActiveSection("user-management")}
+            >
+              Управление пользователями
+            </li>
+            <li
+              className={activeSection === "article-management" ? "active" : ""}
+              onClick={() => setActiveSection("article-management")}
+            >
+              Управление статьями
+            </li>
+          </ul>
+        </nav>
+      </aside>
 
-      {/* Информация о текущем администраторе */}
-      <div className="profile-info">
-        <p>
-          <strong>Имя пользователя:</strong> {admin.userName}
-        </p>
-        <p>
-          <strong>Email:</strong> {admin.email}
-        </p>
-        <p>
-          <strong>Роль:</strong> {admin.role}
-        </p>
-      </div>
+      <main className="main-content">
+        {activeSection === "profile" && (
+          <div className="profile-info">
+            <h2>Панель администратора</h2>
+            <p>
+              <strong>Имя пользователя:</strong> {admin.userName}
+            </p>
+            <p>
+              <strong>Email:</strong> {admin.email}
+            </p>
+            <p>
+              <strong >Роль:</strong> {admin.role}
+            </p>
+          </div>
+        )}
+        {activeSection === "user-management" && (
+          <div className="user-management">
+            <h2>Управление пользователями</h2>
+            <div className="create-user-form">
+              <CreateUserForm />
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Имя пользователя</th>
+                  <th>Email</th>
+                  <th>Роль</th>
+                  <th>Статус</th>
+                  <th>Действия</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filteredUsers.map((user) => (
+                  <tr key={user.id}>
+                    <td>{user.id}</td>
+                    <td>{user.userName}</td>
+                    <td>{user.email}</td>
+                    <td>{user.role}</td>
+                    <td>{user.lockoutEnd ? "Заблокирован" : "Активен"}</td>
+                    <td>
+                      {user.lockoutEnd ? (
+                        <button onClick={() => unblockUser(user.id)}>
+                          Разблокировать
+                        </button>
+                      ) : (
+                        <button onClick={() => blockUser(user.id)}>
+                          Заблокировать
+                        </button>
+                      )}
+                      <button onClick={() => deleteUser(user.id)}>
+                        Удалить
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+        {activeSection === "article-management" && (
+          <div className="article-management">
+            <h2>Управление статьями</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Название</th>
+                  <th>Статус</th>
+                  <th>Автор</th>
+                  <th>Рецензент</th>
+                  <th>Действия</th>
+                </tr>
+              </thead>
+              <tbody>
+                {articles.map((article) => (
+                  <tr key={article.id}>
+                    <td>{article.id}</td>
+                    <td>{article.title}</td>
+                    <td>{article.status}</td>
+                    <td>{article.authorName}</td>
+                    <td>{article.reviewerName}</td>
+                    <td>
+                      <button onClick={() => deleteArticle(article.id)}>
+                        Удалить
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </main>
 
-      {/* Форма создания нового пользователя */}
-      <CreateUserForm className="create-user-form"/>
-
-      {/* Таблица пользователей */}
-      <h2>Управление пользователями</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Имя пользователя</th>
-            <th>Email</th>
-            <th>Роль</th>
-            <th>Статус</th>
-            <th>Действия</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredUsers.map((user) => (
-            <tr key={user.id}>
-              <td>{user.id}</td>
-              <td>{user.userName}</td>
-              <td>{user.email}</td>
-              <td>{user.role}</td>
-              <td>{user.lockoutEnd ? "Заблокирован" : "Активен"}</td>
-              <td>
-                {user.lockoutEnd ? (
-                  <button onClick={() => unblockUser(user.id)}>
-                    Разблокировать
-                  </button>
-                ) : (
-                  <button onClick={() => blockUser(user.id)}>
-                    Заблокировать
-                  </button>
-                )}
-                <button onClick={() => deleteUser(user.id)}>Удалить</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
-      {/* Таблица статей */}
-      <h2>Управление статьями</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Название</th>
-            <th>Статус</th>
-            <th>Автор</th>
-            <th>Рецензент</th>
-          </tr>
-        </thead>
-        <tbody>
-          {articles.map((article) => (
-            <tr key={article.id}>
-              <td>{article.id}</td>
-              <td>{article.title}</td>
-              <td>{article.status}</td>
-              <td>{article.authorName}</td>
-              <td>{article.reviewerName}</td>
-              <td>
-                <button onClick={() => deleteArticle(article.id)}>
-                  Удалить
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <button onClick={handleLogout}>Выйти</button>
+      <button className="logout" onClick={handleLogout}>Выйти</button>
     </div>
   );
 };

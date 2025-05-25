@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./SubmitArticleForm"
 
 const SubmitArticleForm = () => {
   const [formData, setFormData] = useState({
@@ -56,9 +57,8 @@ const SubmitArticleForm = () => {
       <p>Заполните поля ниже, чтобы отправить свою статью на рецензию.</p>
 
       <form onSubmit={handleSubmit}>
-        {/* Поле для заголовка */}
         <div>
-          <label htmlFor="title">Заголовок статьи</label>
+          <h3>Заголовок статьи</h3>
           <input
             type="text"
             id="title"
@@ -72,7 +72,7 @@ const SubmitArticleForm = () => {
 
         {/* Загрузка файла */}
         <div>
-          <label htmlFor="file">Выберите файл статьи (PDF, DOCX)</label>
+          <h3 htmlFor="file">Выберите файл статьи (PDF, DOCX)</h3>
           <input
             type="file"
             id="file"
@@ -85,7 +85,7 @@ const SubmitArticleForm = () => {
 
         {/* Редактор содержимого */}
         <div>
-                    <label htmlFor="content">Содержание статьи</label>
+                    <h3 htmlFor="content">Содержание статьи</h3>
                     <textarea
                         id="content"
                         name="content"
@@ -94,14 +94,10 @@ const SubmitArticleForm = () => {
                         onChange={handleInputChange}
                     ></textarea>
                 </div>
+                <button className="to-review" type="submit">Отправить на рецензию</button>
+      
+         </form>
 
-        {/* Кнопки */}
-        <div>
-          <button type="submit">Отправить на рецензию</button>
-        </div>
-        {/* Кнопка "Выйти" */}
-        
-      </form>
     </div>
   );
 };

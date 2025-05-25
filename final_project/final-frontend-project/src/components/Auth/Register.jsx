@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "../../style/Register.css";
 
 const Register = () => {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
     password: "",
-    role: "Author", // По умолчанию выбрана роль Author
+    role: "",
   });
-
+  const handleLogout = () => {
+    window.location.href = "/login";
+  };
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -16,14 +19,12 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Проверка имени пользователя
     if (!/^[a-zA-Z0-9]+$/.test(formData.username)) {
       alert("Имя пользователя может содержать только буквы и цифры.");
       return;
     }
 
-    console.log("Отправляемые данные:", formData); // Логируем данные
+    console.log("Отправляемые данные:", formData);
 
     try {
       const response = await axios.post(
@@ -37,17 +38,19 @@ const Register = () => {
         "Ошибка при регистрации:",
         error.response?.data || error.message
       );
-        }
+    }
   };
 
   return (
     <div className="register-container">
-      <h2>Регистрация</h2>
+      <h1>Регистрация</h1>
       <form onSubmit={handleSubmit}>
         {/* Поле для имени пользователя */}
         <div>
-          <label htmlFor="username">Имя пользователя</label>
-          <input
+          <label className="Username" htmlFor="username">
+            Имя пользователя
+          </label>
+          <p><input
             type="text"
             id="username"
             name="username"
@@ -55,13 +58,11 @@ const Register = () => {
             value={formData.username}
             onChange={handleInputChange}
             required
-          />
+          /></p>
         </div>
-
-        {/* Поле для email */}
         <div>
-          <label htmlFor="email">Email</label>
-          <input
+          <label className="Email" htmlFor="email">Email</label>
+         <p> <input
             type="email"
             id="email"
             name="email"
@@ -69,13 +70,11 @@ const Register = () => {
             value={formData.email}
             onChange={handleInputChange}
             required
-          />
+          /></p>
         </div>
-
-        {/* Поле для пароля */}
         <div>
-          <label htmlFor="password">Пароль</label>
-          <input
+          <label className="Password" htmlFor="password">Пароль</label>
+          <p><input
             type="password"
             id="password"
             name="password"
@@ -83,13 +82,12 @@ const Register = () => {
             value={formData.password}
             onChange={handleInputChange}
             required
-          />
+          /></p>
         </div>
-
-        {/* Выбор роли */}
         <div>
-          <label htmlFor="role">Роль</label>
-          <select
+          <label className="Role" htmlFor="role">Роль</label>
+          <p><select
+            className="SelectRole"
             id="role"
             name="role"
             value={formData.role}
@@ -98,11 +96,10 @@ const Register = () => {
           >
             <option value="Author">Автор</option>
             <option value="Reviewer">Рецензент</option>
-          </select>
+          </select></p>
         </div>
-
-        {/* Кнопка регистрации */}
-        <button type="submit">Зарегистрироваться</button>
+        <button className="button" type="submit">Зарегистрироваться</button>
+        <p><button className="button" onClick={handleLogout}>На страницу входа</button></p>
       </form>
     </div>
   );
